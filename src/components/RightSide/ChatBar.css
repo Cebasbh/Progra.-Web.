@@ -1,0 +1,10 @@
+.ChatInput{
+    width: 84%;
+}
+.ChatButton{
+    width: 16%;
+}
+.ChatBar{
+    display: flex;
+    height: 7%;
+}

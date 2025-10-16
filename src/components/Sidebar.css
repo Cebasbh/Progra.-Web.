@@ -1,0 +1,14 @@
+/* Sidebar.css */
+
+.sidebar-container {
+    min-height: 100vh;
+}
+
+.live-indicator {
+    width: 12px;
+    height: 12px;
+}
+
+.live-badge {
+    font-size: 0.65rem;
+}

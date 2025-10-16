@@ -1,0 +1,10 @@
+/* components/NavBar/UserIcon.css */
+
+.user-icon-button {
+  border: none;
+  background: transparent;
+}
+
+.user-icon-cursor {
+  cursor: pointer;
+}

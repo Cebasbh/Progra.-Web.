@@ -1,0 +1,6 @@
+.PointsBar{
+    display: flex;
+    align-items: center;
+    height: 5%;
+    border: 1px solid black;
+}

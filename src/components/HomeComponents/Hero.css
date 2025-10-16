@@ -1,0 +1,5 @@
+/* Hero.css */
+.hero-carousel-image {
+    height: 400px;
+    object-fit: cover;
+}

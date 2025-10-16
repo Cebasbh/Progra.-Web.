@@ -1,0 +1,26 @@
+.Page{
+    height: 100vh;
+}
+.NavBar-Seccion{
+    height: 10%;
+}
+.Main-Seccion{
+    height: 90%;
+}
+#Left-Page{ 
+    padding: 0px;
+    height: 100%;
+    width: 16%;
+    border-right: 1px solid #333333;
+}
+#Middle-Page{
+    padding: 0px;
+    height: 100%;
+    width: 61%;
+    border-right: 1px solid #333333;
+}
+#Right-Page{
+    padding: 0px;
+    height: 100%;
+    width: 23%;
+}

@@ -1,0 +1,6 @@
+/* Streamcard.css */
+
+.stream-card-thumbnail {
+    height: 180px;
+    object-fit: cover;
+}
