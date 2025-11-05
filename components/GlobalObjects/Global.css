@@ -1,0 +1,34 @@
+:root {
+    --space-black: #0A0A1A; /*Fondo Principal*/
+    --nebula-violet: #3B0B5F;  /*Cards, NavBar*/
+    --galactic-indigo: #2E1A47;  /*Bordes*/
+    --starlight-gray: #E0E0E0;  /*Texto Principal*/
+    --dusty-nebula: #A69CAC;  /*Texto Secundario*/
+    --supernova-yellow: #FFD23F;  /*Botones*/
+    --red-giant-orange: #FF6B35;  /*Botones 2*/
+    --blue-dwarf: #2EC4B6;  /*Hover luminoso*/
+}
+.temp{
+    color: white;
+    background-color: black;
+}
+.tag{
+    background-color: var(--red-giant-orange);
+}
+.card{
+    background-color: var(--nebula-violet);
+    color: var(--starlight-gray);
+}
+.card-image {
+    position: relative;
+}
+.pages{
+    background-color: var(--space-black);
+    color: var(--starlight-gray);
+}
+.text-muted {
+    color: var(--dusty-nebula) !important;
+}
+.clickable {
+    cursor: pointer
+}

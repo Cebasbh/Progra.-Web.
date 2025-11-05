@@ -1,0 +1,13 @@
+/* Hero.css */
+.carousel-image {
+    height: 300px;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+}
+.carousel-text{
+    height: 300px;
+    width: 250px;
+}
+#Carousel{
+    width: 750px;
+}

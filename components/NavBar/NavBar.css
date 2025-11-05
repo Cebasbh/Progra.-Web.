@@ -1,0 +1,21 @@
+.NavBar{
+    display: flex; /*Ordena el componente en una linea. No se hace solo con row porque se necesita el align items*/
+    align-items: center; /*Alinearlos al centro vertical*/
+    border-bottom: 1px solid black; /*Borde separador con el contenido main*/
+}
+.Right-NavBar{
+    display: flex; /*Para poder colocar el título y los 3 puntos sin que se muevan, activa el align items*/
+    align-items: center; /*Alinearlos al centro vertical*/
+    text-align: left; /*Alinearlos a la izquierda horizontal*/
+}
+
+.Right-NavBar .nav-link {
+    margin-left: 1rem; /*Espaciado entre los enlaces de navegación*/
+}
+
+.Middle-NavBar{
+    text-align: center; /*Alinearlos al centro horizontal*/
+}
+.Left-NavBar{
+    text-align: right; /*Alinearlos a la derecha horizontal*/
+}
