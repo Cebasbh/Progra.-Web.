@@ -1,7 +1,7 @@
-import PaymentGateway from "../components/PayingComponentes/PaymentGateway"
-import type { User } from "../components/GlobalObjects/Objects_DataTypes"
+import PaymentGateway from "./PaymentGateway"
+import type { User } from "../../GlobalObjects/Objects_DataTypes"
 interface CardInputProps {
-    doPayment: (user : User | null, bought : number | undefined) => void
+    doPayment: (user : User | null, bought : number) => void
     GetUser : () => User | null
 }
 const CardInput = (props:CardInputProps) =>{

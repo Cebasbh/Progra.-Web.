@@ -1,15 +1,15 @@
 //Import de librerías
 
 //Import de components
-import Feed from '../components/HomeComponents/Feed';
-import Carousel from '../components/HomeComponents/Carousel';
+import Feed from './Feed';
+import Carousel from './Carousel';
 
 //Import de types
-import type { Stream } from '../components/GlobalObjects/Objects_DataTypes';
+import type { Stream } from '../../GlobalObjects/Objects_DataTypes';
 
 //Import de css
-import "../components/GlobalObjects/Animations.css"
-import "../components/GlobalObjects/Global.css"
+import "../../GlobalObjects/Animations.css"
+import "../../GlobalObjects/Global.css"
 
 //Props
 interface HomeProps {

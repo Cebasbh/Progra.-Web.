@@ -1,16 +1,16 @@
 //Import de componentss
-import CategoryCard from "../components/ExploreComponents/CategoryCard";
+import CategoryCard from "./CategoryCard";
 
 //Import de types
-import type { Tag } from "../components/GlobalObjects/Objects_DataTypes";
+import type { GameTag } from "../../GlobalObjects/Objects_DataTypes";
 
 //Import de css
-import "../components/GlobalObjects/Animations.css"
-import "../components/GlobalObjects/Global.css"
+import "../../GlobalObjects/Animations.css"
+import "../../GlobalObjects/Global.css"
 
 //Props
 interface ExploreTagsProps{
-  	tags : Tag[]
+  	tags : GameTag[]
 }
 const ExploreTags = (props: ExploreTagsProps) => {
 	return (

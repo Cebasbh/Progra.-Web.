@@ -7,8 +7,10 @@ import ThreeDotsIcon from './ThreeDotsIcon';
 import './NavBar.css';
 import { Link} from 'react-router-dom';
 import SearchBar from './SearchBar';
-import type { Pack } from '../GlobalObjects/Objects_DataTypes';
-import type { User } from '../GlobalObjects/Objects_DataTypes';
+import type { Pack } from '../../GlobalObjects/Objects_DataTypes';
+import type { User } from '../../GlobalObjects/Objects_DataTypes';
+import "../../GlobalObjects/Animations.css"
+import "../../GlobalObjects/Global.css"
 
 interface NavBarProps {
 	packs : Pack[]

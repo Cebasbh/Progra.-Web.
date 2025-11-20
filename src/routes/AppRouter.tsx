@@ -6,42 +6,42 @@ import { AuthProvider } from '../context/AuthContext';
 import NavBar from '../components/NavBarComponents/NavBar';
 import SideBar from "../components/SideBar/SideBar";
 
-import Home from '../pages/Home';
-import ExploreTags from '../pages/ExploreTags';
-import ExploreGames from "../pages/ExploreGames";
-import Search from '../pages/Search';
-import Login from '../pages/Login';
-
-import Signin from '../pages/Signin';
+import Home from '../components/HomeComponents/Home';
+import ExploreTags from '../components/ExploreComponents/ExploreTags';
+import ExploreGames from "../components/ExploreComponents/ExploreGames";
+import Search from '../components/SearchComponents/Search';
+import Login from '../components/Login_SiginComponents/Login';
+import Signin from '../components/Login_SiginComponents/Signin';
 
 import Profile from '../pages/Profile';
 import PrivateRoute from './PrivateRoute';
-import TyC from '../pages/TyC';
-import Nosotros from '../pages/Nosotros';
+import TyC from '../components/Terms_AboutUsComponents/TyC';
+import Nosotros from '../components/Terms_AboutUsComponents/Nosotros';
 import PanelControl from '../pages/PanelControl';
 import ConvertirseCreador from '../pages/ConvertirseCreador';
-import Streaming from '../pages/Streaming';
-import CardInput from '../pages/CardInput';
+import Streaming from '../components/StreamingComponents/Streaming';
+import CardInput from '../components/PayingComponents/CardInput';
 import GestionRegalos from '../pages/GestionRegalos';
-import "../components/GlobalObjects/Global.css"
-import "../components/GlobalObjects/Animations.css"
-import type { Stream } from '../components/GlobalObjects/Objects_DataTypes';
-import type { Tag } from '../components/GlobalObjects/Objects_DataTypes';
-import type { Game } from '../components/GlobalObjects/Objects_DataTypes';
-import type { Streamer } from '../components/GlobalObjects/Objects_DataTypes';
-import type { Pack } from '../components/GlobalObjects/Objects_DataTypes';
-import type { User } from '../components/GlobalObjects/Objects_DataTypes';
+
+import "../GlobalObjects/Animations.css"
+import "../GlobalObjects/Global.css"
+
+import type { Stream } from '../GlobalObjects/Objects_DataTypes';
+import type { GameTag } from '../GlobalObjects/Objects_DataTypes';
+import type { Game } from '../GlobalObjects/Objects_DataTypes';
+import type { User } from '../GlobalObjects/Objects_DataTypes';
+import type { Pack } from '../GlobalObjects/Objects_DataTypes';
 
 interface AppRouterProps {
 	streams: Stream[]
-	following: Streamer[]
-	tags: Tag[]
+	following: User[]
+	tags: GameTag[]
 	games: Game[]
 	packs: Pack[]
 	users: User[]
 	user: User | null
-	doFollowing : (streamer: Streamer) => void
-	doPayment: (user : User | null, bought : number | undefined) => void
+	doFollowing : (user: User) => void
+	doPayment: (user : User | null, bought : number) => void
 	doLogIn : (email : string, pass: string) => void
 	doSignIn : (name : string, email : string, pass: string) => void
 	doLogOut : () => void
@@ -60,16 +60,16 @@ return (
 			<div className="col-10 d-flex flex-column" id="Main-Page">
 				<main className="flex-grow-1">
 					<Routes>
-						<Route path="/" element={<Home recommendedstreams={props.streams}/>}/>
+						<Route path="/Home" element={<Home recommendedstreams={props.streams}/>}/>
 						<Route path="/exploretags" element={<ExploreTags tags={props.tags}/>}/>
 						<Route path="/exploretags/:name" element={<ExploreGames games={props.games}/>}/>
 						<Route path="/search/:name" element={<Search streams={props.streams}/>}/>
-						<Route path="/streaming/:name" element={<Streaming doFollowing={props.doFollowing} streams={props.streams} following = {props.following}/>} />
+						<Route path="/streaming/:name" element={<Streaming doFollowing={props.doFollowing} streams={props.streams} following = {props.following} GetUser={props.GetUser}/>} />
 						<Route path="/TyC" element={<TyC/>}/>
 						<Route path="/nosotros" element={<Nosotros/>}/>
 						<Route path="/login" element={<Login doLogIn={props.doLogIn}/>}/>
 						<Route path="/signin" element={<Signin doSignIn={props.doSignIn}/>}/>
-						<Route path="/payment" element={<CardInput GetUser={props.GetUser}doPayment={props.doPayment}/>}/>
+						<Route path="/payment" element={<CardInput GetUser={props.GetUser} doPayment={props.doPayment}/>}/>
 
 						<Route path="/profile" element={<PrivateRoute><Profile/></PrivateRoute>}/>
 						<Route path="/panelcreador" element={<PrivateRoute><PanelControl/></PrivateRoute>}/>

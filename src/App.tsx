@@ -1,56 +1,53 @@
 import { useEffect, useState } from "react";
 import AppRouter from "./routes/AppRouter";
 import "./App.css";
-import type { Stream } from "./components/GlobalObjects/Objects_DataTypes";
-import type { Tag } from "./components/GlobalObjects/Objects_DataTypes";
-import type { Game } from "./components/GlobalObjects/Objects_DataTypes";
-import type { Streamer } from "./components/GlobalObjects/Objects_DataTypes";
-import type { Pack } from "./components/GlobalObjects/Objects_DataTypes";
-import type { User } from "./components/GlobalObjects/Objects_DataTypes";
-import type { UserRole } from "./components/GlobalObjects/Objects_DataTypes";
+import type { Stream } from "./GlobalObjects/Objects_DataTypes";
+import type { GameTag } from "./GlobalObjects/Objects_DataTypes";
+import type { Game } from "./GlobalObjects/Objects_DataTypes";
+import type { User } from "./GlobalObjects/Objects_DataTypes";
+import type { Pack } from "./GlobalObjects/Objects_DataTypes";
 
 const App = () => {
 const [user, setUser] = useState<User | null>(null);
 const [streams, setStreams] = useState<Stream[]>([]);
-const [tags, setTags] = useState<Tag[]>([]);
+const [tags, setTags] = useState<GameTag[]>([]);
 const [games, setGames] = useState<Game[]>([]);
-const [following, setFollowing] = useState<Streamer[]>([]);
+const [following, setFollowing] = useState<User[]>([]);
+
 const [packs, setPacks] = useState <Pack[]>([]);
 const [users, setUsers] = useState <User[]>([]);
 
 //Para guardar el usuario
 const USER_STORAGE_KEY = "streaming_user";
-const COUNTER = "counter"
-const FollowFunction = (streamer : Streamer) =>{
+const FollowFunction = (user : User) =>{
     for (let i = 0; i < following.length; i++) {
-        if (following[i].id == streamer.id){
+        if (following[i].id == user.id){
             const newfollowing = [...following]
             newfollowing.splice(i, 1) 
             setFollowing(newfollowing)
-            console.log(`Streamer ${streamer.nickname} eliminado`)
-            return
         }   
     }
-    setFollowing([...following, streamer])
-    console.log(`Streamer ${streamer.nickname} agregado`)
-    console.log(following)
+    setFollowing([...following, user])
 }
 
-const PayingFunction = (user : User | null, bought : number | undefined) => {
+const PayingFunction = (user : User | null, bought : number) => {
+    if (!user){
+        return
+    }
     setUsers(prevUsers => prevUsers.map((u : User) => (u.id === user?.id? { ...u, coins: u.coins + bought } : u)))
 }
 
 const LogInFunction = (email : string, pass : string) => {
+    if (email == ""  || pass == ""){
+            throw new Error("Por favor, rellena todos los campos");
+    }
     for (const user of users) {
         if (email == user.email && pass == user.password){
             localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(user));
-			window.location.reload()
-            //TODO: Poner errores en base a cosas normales
-        }   
+            return 1;
+        }
     }
-    if (email == "" || pass == ""){
-        throw new Error('Email y contraseña son requeridos');
-    }
+    throw new Error("Usuario o contraseña incorrectos");
 }
 
 const LogOutFunction = () => {
@@ -58,36 +55,37 @@ const LogOutFunction = () => {
 }
 
 const SignInFunction = (name : string, email : string, pass : string) => {
+    if (name == "" || email == "" || pass == ""){
+        throw new Error("Por favor, rellena todos los campos");
+    }
+    if (pass.length < 6){
+        throw new Error("La contraseña debe tener como mínimo 6 caracteres");
+    }
     for (const user of users) {
         if (email == user.email){
             throw new Error("Email ya en uso");
         }
     }
-    if (name == "" || email == "" || pass == ""){
-        throw new Error("Porfavor, rellena todos los campos");
+    const newuser = {
+        "id": users.length,
+        "name": name,
+        "email": email,
+        "password": pass,
+        "coins": 0,
+        "pfp" : "https://static-cdn.jtvnw.net/user-default-pictures-uv/de130ab0-def7-11e9-b668-784f43822e80-profile_image-70x70.png",
+        "online" : false,
+        "followed" : [],
+        "followers" : [],
+        "friends" : [],
+        "points" : [],
+        "bio" : "",
+        "clips" : [],
+        "medals" : []
     }
-    else{
-        const role: UserRole = "viewer";
-        const newuser = {
-            "id": users.length,
-            "name": name,
-            "email": email,
-            "password": pass,
-            "role": role,
-            "coins": 0
-        }
-        setUsers([...users, newuser])
-        console.log(`User ${name} agregado`)
-        console.log(users)
-    }
+    setUsers([...users, newuser])
 }
 
 const GetUser = () => {
-    const stored = localStorage.getItem(COUNTER);
-    const counter = stored != null ? Number(stored) + 1 : 1;
-    console.log(`Iteración ${counter}`)
-    localStorage.setItem(COUNTER, JSON.stringify(counter));
-
     const userJson = localStorage.getItem(USER_STORAGE_KEY);
     console.log(userJson);
     if (!userJson) {
@@ -107,22 +105,22 @@ useEffect(() => {
         try {
             const posibleuser = GetUser();
             setUser(posibleuser);
-            const response1 = await fetch("/data/streams.json");
+            const response1 = await fetch("./data/streams.json");
             const data1 = await response1.json();
             setStreams(data1);
-            const response2 = await fetch("/data/tags.json");
+            const response2 = await fetch("./data/tags.json");
             const data2 = await response2.json();
             setTags(data2);
-            const response3 = await fetch("/data/games.json");
+            const response3 = await fetch("./data/games.json");
             const data3 = await response3.json();
             setGames(data3);
-            const response4 = await fetch("/data/following.json");
+            const response4 = await fetch("./data/following.json");
             const data4 = await response4.json();
             setFollowing(data4);
-            const response5 = await fetch("/data/packs.json");
+            const response5 = await fetch("./data/packs.json");
             const data5 = await response5.json();
             setPacks(data5);
-            const response6 = await fetch("/data/users.json");
+            const response6 = await fetch("./data/users.json");
             const data6 = await response6.json();
             setUsers(data6);
             console.log("Streams loaded:", data1);

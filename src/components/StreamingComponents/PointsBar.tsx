@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./PointsBar.css";
-import ListaPremios from "../../ListaPremios";
+import ListaPremios from "../ListaPremios";
 
 const PointsBar = () => {
     const [mostrarLista, setMostrarLista] = useState(false);

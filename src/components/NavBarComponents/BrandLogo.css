@@ -12,6 +12,7 @@
 
 .title:hover {
   	animation: hoverColorFlow 1s forwards;
+	cursor : pointer;
 }
 
 .title:not(:hover) {

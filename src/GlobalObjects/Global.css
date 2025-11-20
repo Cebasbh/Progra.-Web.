@@ -70,3 +70,10 @@ html, body {
     background: rgba(var(--nebula-violet), 0.5);
     border-radius: 16px;
 }
+/*Login Y Sign In*/
+.account-errors{
+    color: rgba(var(--red-giant-orange));
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}

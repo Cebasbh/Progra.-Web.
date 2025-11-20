@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./TyC.css"
-import "../components/GlobalObjects/Global.css"
+import "../../GlobalObjects/Global.css"
 
 const secciones: Seccion[] = [
 

@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 //Import de components
 
 //Import de types
-import type { Game } from "../GlobalObjects/Objects_DataTypes"
-import type { Tag } from "../GlobalObjects/Objects_DataTypes"
+import type { Game } from "../../GlobalObjects/Objects_DataTypes"
+import type { GameTag } from "../../GlobalObjects/Objects_DataTypes"
 
 //Import de css
-import "../GlobalObjects/Global.css"
+import "../../GlobalObjects/Animations.css"
+import "../../GlobalObjects/Global.css"
 
 //Props
 interface GameCardProps{
@@ -23,7 +24,7 @@ const GameCard = (props: GameCardProps) => {
                 <div className="card-body">
                     <h6 className="card-title fw-bold">{props.game.name}</h6>
                     {
-                        props.game.tags.map((tag : Tag) => {
+                        props.game.tags.map((tag : GameTag) => {
                             return (
                                 <Link to={`/exploretags/${tag.name}`}>
                                     <span className="badge tag m-1">{tag.name}</span>

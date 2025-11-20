@@ -2,7 +2,8 @@
 // Página de inicio de sesión
 import { useState } from 'react';
 import {useNavigate, Link } from 'react-router-dom';
-import "../components/GlobalObjects/Global.css"
+import "../../GlobalObjects/Animations.css"
+import "../../GlobalObjects/Global.css"
 
 interface LoginProps {
 	doLogIn : (email : string, pass: string) => void
@@ -12,6 +13,7 @@ const Login = (props: LoginProps) => {
     const navigate = useNavigate()
 	const [email, SetEmai] = useState<string>("");
 	const [pass, SetPass] = useState<string>("");
+	const [error, SetError] = useState<string>("");
 
     const onNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         SetEmai(e.currentTarget.value)
@@ -24,8 +26,13 @@ const Login = (props: LoginProps) => {
         try {
             props.doLogIn(email,pass)
 			navigate("/Home")
+			window.location.reload()
         } catch (err) {
-            console.error(err);
+            if (err instanceof Error) {
+				SetError(err.message);
+			} else {
+				SetError("Error desconocido durante el login");
+        	}
         }
     }
 	return (
@@ -36,7 +43,6 @@ const Login = (props: LoginProps) => {
 				<div className="card-body p-4">
 				<h2 className="card-title text-center mb-4">Iniciar Sesión</h2>
 				
-				{/* Cuentas de prueba */}
 				<div className="alert" role="alert">
 					<strong>Cuentas de prueba:</strong>
 					<ul className="mb-0 mt-2">
@@ -57,6 +63,13 @@ const Login = (props: LoginProps) => {
 					<button type="button" className="btn btn-primary w-100 fw-bold page-button border-0" onClick={handleLogin}>
 						Iniciar Sesión
 					</button>
+					{error? 
+					<div className="account-errors">
+						{error}
+                    </div> 
+					: 
+					""
+					}
 				</form>
 
 				<div className="text-center mt-3">

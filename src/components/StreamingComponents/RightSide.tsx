@@ -2,10 +2,12 @@ import ChatMessage from "./ChatMessage"
 import ChatBar from "./ChatBar"
 import PointsBar from "./PointsBar"
 import type { Message } from "../../GlobalObjects/Objects_DataTypes"
+import type { User } from "../../GlobalObjects/Objects_DataTypes"
 import "./RightSide.css"
 interface RightSideProps {
     mensajes : Message[]
     setMensajes : (newmensajes : Message[]) => void
+    GetUser : () => User | null
 }
 const RightSide = (props: RightSideProps) => {
     return(
@@ -22,7 +24,7 @@ const RightSide = (props: RightSideProps) => {
                     })
                 }
             </div>
-            <ChatBar mensajes={props.mensajes} setMensajes = {props.setMensajes} />
+            <ChatBar mensajes={props.mensajes} setMensajes = {props.setMensajes} GetUser={props.GetUser} />
             <PointsBar></PointsBar>
         </div>
     )

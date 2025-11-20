@@ -1,10 +1,10 @@
 import { useLocation } from "react-router-dom";
-import type { Pack } from "../GlobalObjects/Objects_DataTypes";
-import type { User } from "../GlobalObjects/Objects_DataTypes";
+import type { Pack } from "../../GlobalObjects/Objects_DataTypes";
+import type { User } from "../../GlobalObjects/Objects_DataTypes";
 import "./PaymentGateway.css"
 
 interface PaymentGatewayProps {
-	doPayment: (user : User | null, bought : number | undefined) => void
+	doPayment: (user : User | null, bought : number) => void
 	GetUser : () => User | null
 }
 const PaymentGateway = (props : PaymentGatewayProps) => {
@@ -16,7 +16,8 @@ const PaymentGateway = (props : PaymentGatewayProps) => {
 			<h1>Completar compra</h1>
 			<div className="d-flex justify-content-between align-items-center mt-4">
 				<div className="text-start">
-					<h5 className="fw-bold">{pack?.name}</h5>
+					//TODO FIX PaymentGateway
+					{pack? <h5 className="fw-bold">{pack.name}</h5> : <h5 className="fw-bold">CANTIDAD ARBITRARIA</h5>}
 				</div>
 				<div className="text-end">
 					<h5 className="fw-bold">PEN {pack?.finalprice}</h5>
@@ -59,7 +60,7 @@ const PaymentGateway = (props : PaymentGatewayProps) => {
 			</form>
 			</div>
 			<div className="modal-footer mt-3">
-				<button type="button" className="btn btn-primary page-button" onClick={() => {props.doPayment(props.GetUser(),pack?.value)}}>Realizar Pago</button>
+				<button type="button" className="btn btn-primary page-button" onClick={() => {props.doPayment(props.GetUser(),pack? pack.value : 1000)}}>Realizar Pago</button>
 			</div>
 			</div>
 		)

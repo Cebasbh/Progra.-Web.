@@ -1,9 +1,10 @@
 import { useState } from "react"
 
-import "../pages/Nosotros.css"
-import "../components/GlobalObjects/Global.css"
+import "./Nosotros.css"
+import "../../GlobalObjects/Animations.css"
+import "../../GlobalObjects/Global.css"
 
-import GridIntegrantes, { type Integrante } from "../components/GridIntegrantes"
+import GridIntegrantes, { type Integrante } from "./GridIntegrantes"
 
 const personas : Integrante[] = [
     {

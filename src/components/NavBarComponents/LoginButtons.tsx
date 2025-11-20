@@ -2,8 +2,9 @@
 // Botones de iniciar sesión y registrarse para usuarios no autenticados
 
 import { Link } from 'react-router-dom';
-import "../GlobalObjects/Icons.css";
-import "../GlobalObjects/Global.css"
+import "../../GlobalObjects/Icons.css";
+import "../../GlobalObjects/Animations.css"
+import "../../GlobalObjects/Global.css"
 
 const LoginButtons = () => {
 return (

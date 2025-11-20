@@ -3,6 +3,8 @@
         "id": 1,
         "name": "League of Legends",
         "photo": "https://static-cdn.jtvnw.net/ttv-boxart/21779-285x380.jpg",
+        "spectators": 1000,
+        "followers": 2000,
         "tags": [
             { "id": 1, "name": "MOBA" },
             { "id": 2, "name": "eSports" },
@@ -15,6 +17,8 @@
         "id": 2,
         "name": "Grand Theft Auto V",
         "photo": "https://static-cdn.jtvnw.net/ttv-boxart/6521_IGDB-285x380.jpg",
+        "spectators": 1000,
+        "followers": 2000,
         "tags": [
             { "id": 4, "name": "Acción-Aventura" },
             { "id": 5, "name": "Mundo abierto" },
@@ -26,6 +30,8 @@
         "id": 3,
         "name": "Counter-Strike 2",
         "photo": "https://static-cdn.jtvnw.net/ttv-boxart/32399-285x380.jpg",
+        "spectators": 1000,
+        "followers": 2000,
         "tags": [
             { "id": 7, "name": "FPS" },
             { "id": 8, "name": "Táctico" },
@@ -37,6 +43,8 @@
         "id": 4,
         "name": "VALORANT",
         "photo": "https://static-cdn.jtvnw.net/ttv-boxart/516575-285x380.jpg",
+        "spectators": 1000,
+        "followers": 2000,
         "tags": [
             { "id": 7, "name": "FPS" },
             { "id": 8, "name": "Táctico" },
@@ -48,6 +56,8 @@
         "id": 5,
         "name": "Dota 2",
         "photo": "https://static-cdn.jtvnw.net/ttv-boxart/29595-285x380.jpg",
+        "spectators": 1000,
+        "followers": 2000,
         "tags": [
             { "id": 1, "name": "MOBA" },
             { "id": 2, "name": "eSports" },
@@ -59,6 +69,8 @@
         "id": 6,
         "name": "Fortnite",
         "photo": "https://static-cdn.jtvnw.net/ttv-boxart/33214-285x380.jpg",
+        "spectators": 1000,
+        "followers": 2000,
         "tags": [
             { "id": 10, "name": "Battle Royale" },
             { "id": 11, "name": "Acción" },
@@ -70,6 +82,8 @@
         "id": 7,
         "name": "World of Warcraft",
         "photo": "https://static-cdn.jtvnw.net/ttv-boxart/18122-285x380.jpg",
+        "spectators": 1000,
+        "followers": 2000,
         "tags": [
             { "id": 13, "name": "MMORPG" },
             { "id": 14, "name": "Rol" },
@@ -81,6 +95,8 @@
         "id": 8,
         "name": "Minecraft",
         "photo": "https://static-cdn.jtvnw.net/ttv-boxart/27471_IGDB-285x380.jpg",
+        "spectators": 1000,
+        "followers": 2000,
         "tags": [
             { "id": 16, "name": "Sandbox" },
             { "id": 17, "name": "Construcción" },
@@ -92,6 +108,8 @@
         "id": 9,
         "name": "Call of Duty: Warzone",
         "photo": "https://static-cdn.jtvnw.net/ttv-boxart/512710-285x380.jpg",
+        "spectators": 1000,
+        "followers": 2000,
         "tags": [
             { "id": 7, "name": "FPS" },
             { "id": 10, "name": "Battle Royale" },
@@ -103,6 +121,8 @@
         "id": 10,
         "name": "Apex Legends",
         "photo": "https://static-cdn.jtvnw.net/ttv-boxart/511224-285x380.jpg",
+        "spectators": 1000,
+        "followers": 2000,
         "tags": [
             { "id": 7, "name": "FPS" },
             { "id": 10, "name": "Battle Royale" },
@@ -114,6 +134,8 @@
         "id": 11,
         "name": "Elden Ring: Nightreign",
         "photo": "https://static-cdn.jtvnw.net/ttv-boxart/982348888_IGDB-285x380.jpg",
+        "spectators": 1000,
+        "followers": 2000,
         "tags": [
             { "id": 6, "name": "Rol-play" },
             { "id": 14, "name": "Rol" },
@@ -125,6 +147,8 @@
         "id": 12,
         "name": "Path of Exile 2",
         "photo": "https://static-cdn.jtvnw.net/ttv-boxart/1702520304_IGDB-285x380.jpg",
+        "spectators": 1000,
+        "followers": 2000,
         "tags": [
             { "id": 19, "name": "ARPG" },
             { "id": 13, "name": "MMORPG" },
@@ -135,6 +159,8 @@
         "id": 13,
         "name": "Rocket League",
         "photo": "https://static-cdn.jtvnw.net/ttv-boxart/30921-285x380.jpg",
+        "spectators": 1000,
+        "followers": 2000,
         "tags": [
             { "id": 20, "name": "Deporte" },
             { "id": 21, "name": "Vehículos" },
@@ -145,6 +171,8 @@
         "id": 14,
         "name": "Monster Hunter Wilds",
         "photo": "https://static-cdn.jtvnw.net/ttv-boxart/1286077738_IGDB-285x380.jpg",
+        "spectators": 1000,
+        "followers": 2000,
         "tags": [
             { "id": 22, "name": "Caza" },
             { "id": 24, "name": "Aventura" },
@@ -155,6 +183,8 @@
         "id": 15,
         "name": "Street Fighter 6",
         "photo": "https://static-cdn.jtvnw.net/ttv-boxart/55453844_IGDB-285x380.jpg",
+        "spectators": 1000,
+        "followers": 2000,
         "tags": [
             { "id": 23, "name": "Lucha" },
             { "id": 3, "name": "Competitivo" },
@@ -165,6 +195,8 @@
         "id": 16,
         "name": "Overwatch 2",
         "photo": "https://static-cdn.jtvnw.net/ttv-boxart/515025-285x380.jpg",
+        "spectators": 1000,
+        "followers": 2000,
         "tags": [
             { "id": 7, "name": "FPS" },
             { "id": 3, "name": "Competitivo" },
@@ -175,6 +207,8 @@
         "id": 17,
         "name": "Rust",
         "photo": "https://static-cdn.jtvnw.net/ttv-boxart/263490_IGDB-285x380.jpg",
+        "spectators": 1000,
+        "followers": 2000,
         "tags": [
             { "id": 16, "name": "Sandbox" },
             { "id": 18, "name": "Supervivencia" },
@@ -183,8 +217,10 @@
     },
     {
         "id": 18,
-        "name": "Tom Clancy’s Rainbow Six Siege",
+        "name": "Tom Clancy's Rainbow Six Siege",
         "photo": "https://static-cdn.jtvnw.net/ttv-boxart/460630-285x380.jpg",
+        "spectators": 1000,
+        "followers": 2000,
         "tags": [
             { "id": 7, "name": "FPS" },
             { "id": 8, "name": "Táctico" },
@@ -195,6 +231,8 @@
         "id": 19,
         "name": "Marvel Rivals",
         "photo": "https://static-cdn.jtvnw.net/ttv-boxart/1264310518-285x380.jpg",
+        "spectators": 1000,
+        "followers": 2000,
         "tags": [
             { "id": 25, "name": "Personajes de cómic" },
             { "id": 3, "name": "Competitivo" },
@@ -205,6 +243,8 @@
         "id": 20,
         "name": "EA Sports FC 25",
         "photo": "https://static-cdn.jtvnw.net/ttv-boxart/2011938005_IGDB-285x380.jpg",
+        "spectators": 1000,
+        "followers": 2000,
         "tags": [
             { "id": 20, "name": "Deporte" },
             { "id": 26, "name": "Fútbol" },
@@ -215,6 +255,8 @@
         "id": 21,
         "name": "Just Chatting",
         "photo": "https://static-cdn.jtvnw.net/ttv-boxart/509658-285x380.jpg",
+        "spectators": 1000,
+        "followers": 2000,
         "tags": [
             { "id": 28, "name": "IRL" },
             { "id": 15, "name": "Fantástico" },

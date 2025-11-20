@@ -1,18 +1,18 @@
 import FollowButton from "./FollowButton"
 import type { Stream } from "../../GlobalObjects/Objects_DataTypes"
-import type { Streamer } from "../../GlobalObjects/Objects_DataTypes"
+import type { User } from "../../GlobalObjects/Objects_DataTypes"
 import "./StreamingSection.css"
 
 interface StreamingSectionProps{
     stream : Stream
-    following: Streamer[];
-    doFollowing : (streamer: Streamer) => void
+    following: User[];
+    doFollowing : (user: User) => void
 }
 const StreamingSection = (props : StreamingSectionProps) => {
     const isFollowing = () =>{
         let following = false
         for (let i = 0; i < props.following.length; i++) {
-            if (props.following[i].id == props.stream.streamer.id){
+            if (props.following[i].id == props.stream.user.id){
                 following = true;
             }
         }
@@ -27,20 +27,20 @@ const StreamingSection = (props : StreamingSectionProps) => {
                 <div className="StreamerDescription">
                     <div className="Left-Section-StreamerDescription">
                         <div className="ImgStreamBox">
-                            <img className="StreamerImg"src={ props.stream.streamer.photo } alt="Img"/>
+                            <img className="StreamerImg"src={ props.stream.user.pfp } alt="Img"/>
                         </div>
                         <div>
-                            <h4 className="TextBox">{ props.stream.streamer.nickname }</h4>
+                            <h4 className="TextBox">{ props.stream.user.name }</h4>
                             <h4 className="TextBox">{ props.stream.game.name }</h4>
                         </div>
                     </div>
                     <div className="Middle-Section-StreamerDescription">
                         <div className="StreamViewers">
-                            <i className="bi bi-person red"></i><h4 className="TextBox red">{props.stream.viewers}</h4>
+                            <i className="bi bi-person red"></i><h4 className="TextBox red">{props.stream.viewersnumber}</h4>
                         </div>
                     </div>
                     <div className="Right-Section-StreamerDescription">
-                        <FollowButton doFollowing = {props.doFollowing} isFollowing = {isFollowing()} streamer={props.stream.streamer}></FollowButton>
+                        <FollowButton doFollowing = {props.doFollowing} isFollowing = {isFollowing()} user={props.stream.user}></FollowButton>
                     </div>
                 </div>
             </div>

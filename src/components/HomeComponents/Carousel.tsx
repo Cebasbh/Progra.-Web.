@@ -4,11 +4,11 @@
 import CarouselSlide from './CarouselSlide';
 
 //Import de types
-import type {Stream} from '../GlobalObjects/Objects_DataTypes';
+import type {Stream} from '../../GlobalObjects/Objects_DataTypes';
 
 //Import de css
-import "../GlobalObjects/Global.css"
-import "../GlobalObjects/Animations.css"
+import "../../GlobalObjects/Animations.css"
+import "../../GlobalObjects/Global.css"
 
 // Props
 interface CarouselProps {

@@ -2,14 +2,14 @@
 import { useParams } from "react-router-dom";
 
 //Import de componentss
-import StreamCard from "../components/HomeComponents/Streamcard";
+import StreamCard from "../HomeComponents/Streamcard";
 
 //Import de types
-import type { Stream } from "../components/GlobalObjects/Objects_DataTypes";
+import type { Stream } from "../../GlobalObjects/Objects_DataTypes";
 
 //Import de css
-import "../components/GlobalObjects/Animations.css"
-import "../components/GlobalObjects/Global.css"
+import "../../GlobalObjects/Animations.css"
+import "../../GlobalObjects/Global.css"
 
 //Props
 interface SearchProps{
@@ -19,7 +19,7 @@ interface SearchProps{
 const Search = (props : SearchProps) => {
     const { name } = useParams<{ name: string }>();
     const searchedstream = props.streams.filter((stream : Stream)=>{
-        return stream.streamer.nickname === name
+        return stream.user.name.toUpperCase() === name?.toUpperCase()
     })
 	return (
 		<div className="container my-5">

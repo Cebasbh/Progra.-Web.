@@ -1,22 +1,23 @@
 import { useParams } from "react-router-dom"
-import RightSide from "../components/StreamingComponents/RightSide/RightSide"
-import StreamingSection from "../components/StreamingComponents/MiddleSide/StreamingSection"
+import RightSide from "./RightSide"
+import StreamingSection from "./StreamingSection"
 
-import type { Stream } from "../components/GlobalObjects/Objects_DataTypes"
-import type { Streamer } from "../components/GlobalObjects/Objects_DataTypes"
-import type { Message } from "../components/GlobalObjects/Objects_DataTypes"
+import type { Stream } from "../../GlobalObjects/Objects_DataTypes"
+import type { User } from "../../GlobalObjects/Objects_DataTypes"
+import type { Message } from "../../GlobalObjects/Objects_DataTypes"
 import "./Streaming.css"
 import { useState } from "react"
 interface StreamingProps{
     streams : Stream[]
-    following: Streamer[];
-    doFollowing : (streamer: Streamer) => void
+    following: User[];
+    doFollowing : (user: User) => void
+    GetUser : () => User | null
 }
 const Streaming = (props : StreamingProps) => {
     const [mensajes, SetMensajes] = useState<Message[]>([])
     const { name } = useParams<{ name: string }>();
     const stream = props.streams.filter((stream : Stream)=>{
-        return stream.streamer.nickname === name
+        return stream.user.name.toUpperCase() === name?.toUpperCase()
     })
     
     return (
@@ -26,7 +27,7 @@ const Streaming = (props : StreamingProps) => {
                 <StreamingSection stream={stream[0]} following = {props.following} doFollowing={props.doFollowing}></StreamingSection>
             </div>
             <div className="col-3" id="Right-Page">
-                <RightSide mensajes = {mensajes} setMensajes = {SetMensajes}></RightSide>
+                <RightSide mensajes = {mensajes} setMensajes = {SetMensajes} GetUser={props.GetUser}></RightSide>
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-import "../../css/Icons.css"
+import "../../GlobalObjects/Icons.css"
 const ProfileIcon = () => {
     return(
         <i className = "bi bi-person-circle icon"></i>

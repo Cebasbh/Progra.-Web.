@@ -3,22 +3,23 @@
 //Import de components
 
 //Import de types
-import type { Streamer } from "../../GlobalObjects/Objects_DataTypes";
+import type { User } from "../../GlobalObjects/Objects_DataTypes";
 
 //Import de css
+import "../../GlobalObjects/Animations.css"
 import "../../GlobalObjects/Global.css"
 
 //Props
 interface FollowButtonProps{
-    doFollowing : (streamer: Streamer) => void
+    doFollowing : (user: User) => void
     isFollowing : boolean
-    streamer : Streamer
+    user : User
 }
 
 const FollowButton = (props: FollowButtonProps) => {
     
     const FollowOnnClick = () => {
-        props.doFollowing(props.streamer)
+        props.doFollowing(props.user)
     }
 
     return(

@@ -1,4 +1,4 @@
-import "../TyC/SeccionCentral.css"
+import "./SeccionCentral.css"
 import { NavLink } from 'react-router-dom';
 
 const SeccionCentral = (props: SeccionCentralProps) => {

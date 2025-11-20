@@ -2,8 +2,9 @@
 // Página de inicio de sesión
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import "../components/GlobalObjects/Global.css"
 
+import "../../GlobalObjects/Animations.css"
+import "../../GlobalObjects/Global.css"
 interface SigninProps {
 	doSignIn : (name : string, email : string, pass: string) => void
 }
@@ -13,6 +14,7 @@ const Login = (props: SigninProps) => {
     const [name, SetName] = useState<string>("");
 	const [email, SetEmail] = useState<string>("");
 	const [pass, SetPass] = useState<string>("");
+	const [error, SetError] = useState<string>("");
 
     const onNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         SetName(e.currentTarget.value)
@@ -27,11 +29,16 @@ const Login = (props: SigninProps) => {
     const handleSigin = () => {
         try {
             props.doSignIn(name,email,pass)
-			navigate("/")
+			navigate("/Home")
+			window.location.reload()
         } catch (err) {
-            console.error(err);
-        }
-    }
+            if (err instanceof Error) {
+				SetError(err.message);
+			} else {
+				SetError("Error desconocido durante el login");
+        	}
+    	}
+	}
 	return (
 		<div className="container-fluid">
 		<div className="row justify-content-center mt-5">
@@ -53,9 +60,13 @@ const Login = (props: SigninProps) => {
 						<label className="form-label fw-semibold">Contraseña</label>
 						<input className="form-control" type="password" value={pass} onChange={onPassChange} placeholder="••••••••" />
 					</div>	
-                    <div className="text-muted my-2 password-hint">
-                        La contraseña debe tener al menos 6 caracteres
-                    </div>
+                    {error? 
+					<div className="account-errors">
+						{error}
+                    </div> 
+					: 
+					""
+					}
 					<button type="button" className="btn btn-primary w-100 fw-bold page-button border-0" onClick={handleSigin}>
 						Registrarse aquí
 					</button>

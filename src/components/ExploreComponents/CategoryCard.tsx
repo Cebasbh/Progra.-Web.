@@ -4,14 +4,15 @@ import { Link } from 'react-router-dom';
 //Import de components
 
 //Import de types
-import type { Tag } from "../GlobalObjects/Objects_DataTypes"
+import type { GameTag } from "../../GlobalObjects/Objects_DataTypes"
 
 //Import de css
-import "../GlobalObjects/Global.css"
+import "../../GlobalObjects/Animations.css"
+import "../../GlobalObjects/Global.css"
 
 //Props
 interface CategoryCardProps{
-    tag : Tag
+    tag : GameTag
 }
 
 const CategoryCard = (props: CategoryCardProps) => {

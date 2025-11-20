@@ -1,6 +1,7 @@
 import {useNavigate} from "react-router-dom";
-import type { Pack } from "../GlobalObjects/Objects_DataTypes";
+import type { Pack } from "../../GlobalObjects/Objects_DataTypes";
 import "./CoinsButton.css"
+
 interface CoinsButtonProps {
 	packs : Pack[]
 }

@@ -1,14 +1,14 @@
 import StreamBox from "./StreamBox"
-import type { Streamer } from "../GlobalObjects/Objects_DataTypes"
-import type { Stream } from "../GlobalObjects/Objects_DataTypes"
+import type { User } from "../../GlobalObjects/Objects_DataTypes"
+import type { Stream } from "../../GlobalObjects/Objects_DataTypes"
 interface SideBarProps {
     streams : Stream[]
-    following : Streamer[]
+    following : User[]
 }
 const SideBar = (props : SideBarProps) => {
     const streamsfollowed = props.streams.filter((stream : Stream)=>{
-            return props.following.some((streamer : Streamer)=>{
-                return stream.streamer.id === streamer.id
+            return props.following.some((user : User)=>{
+                return stream.user.id === user.id
             })
         })
     return(

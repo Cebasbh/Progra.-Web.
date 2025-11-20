@@ -1,4 +1,4 @@
-import "../GlobalObjects/Icons.css"
+import "../../GlobalObjects/Icons.css";
 import "../HomeComponents/CarouselSlide.css"
 import { Link } from "react-router-dom"
 const ThreeDotsIcon = () => {
