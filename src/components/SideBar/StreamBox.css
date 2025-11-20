@@ -17,11 +17,13 @@
     display: flex; /*Activa el align items, además que hace que los items sean un row*/
     align-items: center; /*Alinearlos al centro vertical*/
     padding-right: 0px; /*Esto más la prioridad por id deja llenar el componente*/
+    color: #E0E0E0;
 }
 #OnStreamBox {
     display : flex; /*Activa el align items, además que hace que los items sean un row*/
     align-items: center; /*Alinearlos al centro vertical*/
     padding: 0px;
+    color: #E0E0E0;
 }
 h5.TextBox{
     font-size: smaller;

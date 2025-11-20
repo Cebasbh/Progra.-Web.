@@ -3,12 +3,17 @@
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from '../context/AuthContext';
-import Header from '../components/NavBar/Header';
-import Footer from '../components/Footer';
+import NavBar from '../components/NavBarComponents/NavBar';
+import SideBar from "../components/SideBar/SideBar";
+
 import Home from '../pages/Home';
-import Explore from '../pages/Explore';
+import ExploreTags from '../pages/ExploreTags';
+import ExploreGames from "../pages/ExploreGames";
+import Search from '../pages/Search';
 import Login from '../pages/Login';
-import Signup from '../pages/Signup';
+
+import Signin from '../pages/Signin';
+
 import Profile from '../pages/Profile';
 import PrivateRoute from './PrivateRoute';
 import TyC from '../pages/TyC';
@@ -16,50 +21,69 @@ import Nosotros from '../pages/Nosotros';
 import PanelControl from '../pages/PanelControl';
 import ConvertirseCreador from '../pages/ConvertirseCreador';
 import Streaming from '../pages/Streaming';
-import PackMonedas from '../pages/PackMonedas';
-import PasarelaPago from '../pages/PasarelaPago';
+import CardInput from '../pages/CardInput';
 import GestionRegalos from '../pages/GestionRegalos';
+import "../components/GlobalObjects/Global.css"
+import "../components/GlobalObjects/Animations.css"
 import type { Stream } from '../components/GlobalObjects/Objects_DataTypes';
+import type { Tag } from '../components/GlobalObjects/Objects_DataTypes';
+import type { Game } from '../components/GlobalObjects/Objects_DataTypes';
+import type { Streamer } from '../components/GlobalObjects/Objects_DataTypes';
+import type { Pack } from '../components/GlobalObjects/Objects_DataTypes';
+import type { User } from '../components/GlobalObjects/Objects_DataTypes';
 
 interface AppRouterProps {
-  streams: Stream[]
+	streams: Stream[]
+	following: Streamer[]
+	tags: Tag[]
+	games: Game[]
+	packs: Pack[]
+	users: User[]
+	user: User | null
+	doFollowing : (streamer: Streamer) => void
+	doPayment: (user : User | null, bought : number | undefined) => void
+	doLogIn : (email : string, pass: string) => void
+	doSignIn : (name : string, email : string, pass: string) => void
+	doLogOut : () => void
+	GetUser : () => User | null
 }
-const AppRouter = (props : AppRouterProps) => {
-  return (
-    <BrowserRouter>
-      <AuthProvider>
-        <div className="d-flex flex-column min-vh-100">
-          {/* Navbar visible en todas las páginas */}
-          <Header></Header>
-          
-          {/* Contenedor principal para las rutas */}
-          <main className="flex-grow-1">
-          <Routes>
-            <Route path="/" element={<Home recommendedstreams={props.streams}/>} />
-            <Route path="/explore" element={<Explore/>}/>
-            <Route path="/login" element={<Login/>}/>
-            <Route path="/signup" element={<Signup/>}/>
-            <Route path="/TyC" element={<TyC/>}/>
-            <Route path="/nosotros" element={<Nosotros/>}/>
-            <Route path="/PackMonedas" element={<PackMonedas/>}/>
-            <Route path="/PasarelaPago" element={<PasarelaPago/>}/>
 
-            <Route path="/profile" element={<PrivateRoute><Profile/></PrivateRoute>}/>
-            <Route path="/panelcreador" element={<PrivateRoute><PanelControl/></PrivateRoute>}/>
-            <Route path="/convertirse-creador" element={<PrivateRoute><ConvertirseCreador/></PrivateRoute>}/>
-            <Route path="/gestion-regalos" element={<PrivateRoute><GestionRegalos/></PrivateRoute>}/>
-            
-            {/* Ruta de visualización de streaming */}
-            <Route path="/streaming/:streamId" element={<Streaming streams={props.streams}/>} />
-            
-            {/* Ruta 404 - redirige al home */}
-            <Route path="*" element={<Home recommendedstreams={props.streams}/>} />
-          </Routes>
-        </main>
-        <Footer />
-        </div>
-      </AuthProvider>
-    </BrowserRouter>
-  );
+const AppRouter = (props : AppRouterProps) => {
+return (
+	<BrowserRouter>
+	<AuthProvider>
+		<NavBar doLogOut={props.doLogOut} user = {props.user} packs = {props.packs}></NavBar>
+		<div className = "d-flex pages vh-100 no-scroll">
+			<div className="col-2" id="Sidebar">
+				<SideBar streams = {props.streams} following = {props.following}></SideBar>
+			</div>
+			<div className="col-10 d-flex flex-column" id="Main-Page">
+				<main className="flex-grow-1">
+					<Routes>
+						<Route path="/" element={<Home recommendedstreams={props.streams}/>}/>
+						<Route path="/exploretags" element={<ExploreTags tags={props.tags}/>}/>
+						<Route path="/exploretags/:name" element={<ExploreGames games={props.games}/>}/>
+						<Route path="/search/:name" element={<Search streams={props.streams}/>}/>
+						<Route path="/streaming/:name" element={<Streaming doFollowing={props.doFollowing} streams={props.streams} following = {props.following}/>} />
+						<Route path="/TyC" element={<TyC/>}/>
+						<Route path="/nosotros" element={<Nosotros/>}/>
+						<Route path="/login" element={<Login doLogIn={props.doLogIn}/>}/>
+						<Route path="/signin" element={<Signin doSignIn={props.doSignIn}/>}/>
+						<Route path="/payment" element={<CardInput GetUser={props.GetUser}doPayment={props.doPayment}/>}/>
+
+						<Route path="/profile" element={<PrivateRoute><Profile/></PrivateRoute>}/>
+						<Route path="/panelcreador" element={<PrivateRoute><PanelControl/></PrivateRoute>}/>
+						<Route path="/convertirse-creador" element={<PrivateRoute><ConvertirseCreador/></PrivateRoute>}/>
+						<Route path="/gestion-regalos" element={<PrivateRoute><GestionRegalos/></PrivateRoute>}/>
+									
+						{/* Ruta 404 - redirige al home */}
+						<Route path="*" element={<Home recommendedstreams={props.streams}/>} />
+					</Routes>
+				</main>
+		</div>
+		</div>
+	</AuthProvider>
+	</BrowserRouter>
+);
 };
 export default AppRouter;

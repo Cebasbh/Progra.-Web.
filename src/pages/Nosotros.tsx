@@ -1,6 +1,7 @@
 import { useState } from "react"
 
 import "../pages/Nosotros.css"
+import "../components/GlobalObjects/Global.css"
 
 import GridIntegrantes, { type Integrante } from "../components/GridIntegrantes"
 
@@ -59,7 +60,7 @@ const Nosotros = () => {
                         
                         <h2 className="h4 mb-3">Nuestra Misión</h2>
                             <p>
-                                StreamPlatform es la plataforma líder de streaming en vivo que conecta a
+                                AstroTV es la plataforma líder de streaming en vivo que conecta a
                                 creadores de contenido con audiencias globales. Nuestra misión es democratizar
                                 la transmisión en vivo y hacer que sea accesible para todos.
                             </p>
@@ -77,11 +78,11 @@ const Nosotros = () => {
                     {/* derecha*/}
                     <div className="col-md-6 mt-md-0">
                         <div className="mt-5">
-                    <div className="card mb-2 bg-primary text-white mt-5">
+                    <div className="card mb-2 bg-primary mt-5 text-card">
                         <div className="card-body p-4 text-center">
                             <h2 className="h4 mb-3">Únete a Nuestra Comunidad</h2>
                             <p>Miles de streamers y espectadores ya forman parte de StreamPlatform</p>
-                            <a href="/signup" className="btn btn-light btn-lg mt-2">
+                            <a href="/signup" className="btn page-button border-0 btn-lg mt-2">
                             Registrarse Ahora
                             </a>
                         </div>

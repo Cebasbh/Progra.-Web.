@@ -1,3 +1,5 @@
+//Import de librerías
+
 //Import de components
 import StreamCard from "./Streamcard"
 
@@ -5,6 +7,8 @@ import StreamCard from "./Streamcard"
 import type {Stream} from "../GlobalObjects/Objects_DataTypes"
 
 //Import de css
+import "../GlobalObjects/Global.css"
+import "../GlobalObjects/Animations.css"
 
 //Props
 interface FeedProps {
@@ -15,14 +19,9 @@ const Feed = (props: FeedProps) => {
   return (
     <div className="container my-4">
       <h2 className="mb-3 fw-bold">Streams Recomendados</h2>
-      
-      {/* Grilla responsive */}
       <div className="row">
-        {/* Renderizado declarativo con map */}
         {props.streams.map((stream : Stream) => (
-          <StreamCard
-            stream = {stream}
-          />
+          <StreamCard stream = {stream}/>
         ))}
       </div>
     </div>

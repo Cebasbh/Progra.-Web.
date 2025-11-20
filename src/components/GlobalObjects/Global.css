@@ -1,0 +1,72 @@
+:root {
+    --space-black: 11, 12, 16; /*Fondo Principal*/
+    --nebula-violet: 110, 60, 160;  /*Cards, NavBar*/
+    --galactic-indigo: 46, 26, 71;  /*Bordes*/
+    --starlight-gray: 224, 224, 224;  /*Texto Principal*/
+    --dusty-nebula: 166, 156, 172;  /*Texto Secundario*/
+    --supernova-yellow: 255, 210, 63;
+    --red-giant-orange: 255, 107, 53;  /*Botones 2*/
+    --blue-dwarf: 46, 196, 182;  /*Hover luminoso*/
+    --stellar-blue: 72, 135, 207;  /*Botones*/
+    --luminous-teal: 37, 203, 168;
+}
+html, body {
+    height: 100% !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+#Sidebar{ 
+    overflow-y: auto;
+}
+#Main-Page{
+    zoom: 0.9;
+    padding: 0px;
+	overflow-y: auto;
+    height: 100%;
+}
+.no-scroll {
+    overflow-y: hidden;
+}
+.temp{
+    color: white;
+    background-color: black;
+    border: r
+}
+.tag{
+    background-color: rgb(var(--red-giant-orange));
+}
+.card{
+    background-color: rgb(var(--nebula-violet));
+    color: rgb(var(--starlight-gray));
+}
+.card-image {
+    position: relative;
+}
+.text-muted {
+    color: rgb(var(--dusty-nebula)) !important;
+}
+.clickable {
+    cursor: pointer
+}
+.text-card{
+    background-color: rgb(var(--nebula-violet)) !important;
+    color: rgb(var(--starlight-gray));
+}
+.page-button{
+    background-color: rgb(var(--stellar-blue)) !important;
+    color: rgb(var(--starlight-gray));
+}
+/*ScrollBar*/
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2b0047;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(var(--nebula-violet), 0.5);
+    border-radius: 16px;
+}

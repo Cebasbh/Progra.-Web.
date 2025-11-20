@@ -1,41 +1,49 @@
+//Import de librerías
 import { Link } from 'react-router-dom';
+
 //Import de components
 
 //Import de types
 import type { Stream } from '../GlobalObjects/Objects_DataTypes';
+
 //Import de css
+import "../GlobalObjects/Global.css"
+import "../GlobalObjects/Animations.css"
 import './Streamcard.css';
 
 // Props
 interface StreamCardProps {
-  stream : Stream
+  	stream : Stream
 }
 
 const StreamCard = (props: StreamCardProps) => {
-  return (
-    <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-      <div className="card bg-dark text-white h-100">
-        {/* Miniatura del stream */}
-        <img
-          src={props.stream.thumbnail}
-          className="card-img-top stream-card-thumbnail"
-          alt={props.stream.title}
-        />
-        
-        {/* Información del stream */}
-        <div className="card-body">
-          <h6 className="card-title fw-bold">{props.stream.title}</h6>
-          <p className="card-text text-muted mb-1">{props.stream.streamer.nickname}</p>
-          <p className="card-text">
-            <span className="badge bg-danger">{props.stream.viewers.toLocaleString()} viewers</span>
-          </p>
-          <Link to={`/streaming/${props.stream.id}`} className="btn btn-primary btn-sm w-100">
-            Ver Stream
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
+  	const DivisiónAproximada = (dividendo : number, divisor : number, decimas : number) => {
+        const cociente = dividendo/divisor;
+        return(cociente.toFixed(decimas))
+    }
+	return (
+		<div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+			<div className="card border-0">
+				<div className="card-image">
+					<Link to={`/streaming/${props.stream.streamer.nickname}`}>
+						<img src={props.stream.thumbnail} className="card-img-top stream-card-thumbnail clickable"/>
+					<div className="overlay">
+						<span className="badge bg-danger">{props.stream.viewers >= 1000000? DivisiónAproximada(props.stream.viewers,1000000,1) + " M ": props.stream.viewers >= 1000? DivisiónAproximada(props.stream.viewers,1000,1) + " K ":props.stream.viewers}viewers</span>
+					</div>
+					</Link>
+				</div>
+				<div className="card-body" id = "StreamerBox">
+					<div className="ImgBox">
+                        <img className="StreamerImg" src={props.stream.streamer.photo} alt="Img"/>
+                    </div>
+					<div id = "NickNameOverflow">
+						<h6 className="card-title fw-bold">{props.stream.title}</h6>
+						<p className="card-text text-muted">{props.stream.streamer.nickname}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 };
 
 export default StreamCard;

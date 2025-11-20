@@ -1,0 +1,12 @@
+.buybutton{
+    font-size: smaller;
+    width: 6rem;
+}
+.dropdown-menu {
+    white-space: nowrap; /* evita que se parta en dos líneas */
+}
+h6.Discount{
+    font-size: x-small;
+    margin-top: 5px; /*Es un interlineado*/
+    margin-bottom: 5px; /*Es un interlineado*/
+}

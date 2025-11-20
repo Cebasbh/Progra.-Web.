@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "name": "Lucía Fernández",
+        "email": "espectador@gmail.com",
+        "password": "espectador123",
+        "role": "viewer",
+        "coins": 0
+    },
+    {
+        "id": 2,
+        "name": "Carlos Ramírez",
+        "email": "creador@gmail.com",
+        "password": "creador123",
+        "role": "streamer",
+        "coins": 0
+    }
+]

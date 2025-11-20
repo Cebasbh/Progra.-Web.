@@ -1,37 +1,26 @@
-import Hero from '../components/HomeComponents/Hero';
+//Import de librerías
+
+//Import de components
 import Feed from '../components/HomeComponents/Feed';
+import Carousel from '../components/HomeComponents/Carousel';
+
+//Import de types
 import type { Stream } from '../components/GlobalObjects/Objects_DataTypes';
+
+//Import de css
+import "../components/GlobalObjects/Animations.css"
+import "../components/GlobalObjects/Global.css"
+
+//Props
 interface HomeProps {
     recommendedstreams : Stream[]
 }
 const Home = (props : HomeProps) => {
-  // Datos mock (movidos desde App.tsx)
-  const heroSlides = [
-    {
-      id: 1,
-      image: '',
-      title: 'Titulo',
-      channel: 'Canal 1'
-    },
-    {
-      id: 2,
-      image: '',
-      title: 'Titulo',
-      channel: 'Canal 1'
-    },
-    {
-      id: 3,
-      image: '',
-      title: 'Titulo',
-      channel: 'Canal 1'
-    },
-  ];
-
   return (
-    <>
-      <Hero slides={heroSlides} />
-      <Feed streams={props.recommendedstreams} />
-    </>
+    <div>
+        <Carousel slides={props.recommendedstreams} />
+        <Feed streams={props.recommendedstreams} />
+    </div>
   );
 };
 
