@@ -1,6 +1,5 @@
 import ChatMessage from "./ChatMessage"
 import ChatBar from "./ChatBar"
-import PointsBar from "./PointsBar"
 import type { Message } from "../../GlobalObjects/Objects_DataTypes"
 import type { User } from "../../GlobalObjects/Objects_DataTypes"
 import "./RightSide.css"
@@ -15,7 +14,7 @@ const RightSide = (props: RightSideProps) => {
             <div className="ChatTitle">
                 <h5 className="TextBox">Stream Chat</h5>
             </div>
-            <div className="RightSideScroll container-fluid">
+            <div className="RightSideScroll">
                 {
                     props.mensajes.map((mensaje : Message) => {
                         return(
@@ -25,7 +24,6 @@ const RightSide = (props: RightSideProps) => {
                 }
             </div>
             <ChatBar mensajes={props.mensajes} setMensajes = {props.setMensajes} GetUser={props.GetUser} />
-            <PointsBar></PointsBar>
         </div>
     )
 }

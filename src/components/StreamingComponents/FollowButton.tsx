@@ -23,7 +23,7 @@ const FollowButton = (props: FollowButtonProps) => {
     }
 
     return(
-        <button className="FollowButton d-flex" onClick={FollowOnnClick}>Follow<i className={props.isFollowing? "bi bi-suit-heart-fill temp":"bi bi-suit-heart temp"}></i></button>
+        <button className="FollowButton d-flex mx-3 page-button" onClick={FollowOnnClick}>Follow<i className={props.isFollowing? "bi bi-suit-heart-fill ms-2":"bi bi-suit-heart ms-2"}></i></button>
     )
 }
 export default FollowButton

@@ -10,7 +10,7 @@ const personas : Integrante[] = [
     {
         nombre : "Sebastian Balbuena Herrera ",
         cod : 20230286,
-        foto :"https://media.licdn.com/dms/image/v2/D5603AQHsygdu-WS_Hg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1726353305110?e=1762992000&v=beta&t=K6J4hmsr8KnMpVUFX0I5Hj-m4GMTu8uTS_3eqI7ioXg"
+        foto :"https://media.licdn.com/dms/image/v2/D5603AQHsygdu-WS_Hg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1726353305108?e=1765411200&v=beta&t=7fDN_PFZ93X6Y8wsDl5v8pCpIB6VOBFiglnzKaUg7uo"
 
     },
     {
@@ -22,25 +22,25 @@ const personas : Integrante[] = [
     {
         nombre : "Victoria Herrera Paredes",
         cod : 20225503,
-        foto :"https://media.licdn.com/dms/image/v2/D5603AQFTOWJ35_itMg/profile-displayphoto-shrink_800_800/B56ZZbj7zjGQAc-/0/1745292869268?e=1762992000&v=beta&t=zEN8xQ8p-eWXFMaRPC4pIo8-KmANnxtdy0p2m-VtCoM"
+        foto :"https://media.licdn.com/dms/image/v2/D5603AQFTOWJ35_itMg/profile-displayphoto-shrink_400_400/B56ZZbj7zjGQAg-/0/1745292869268?e=1765411200&v=beta&t=PAcOTajsqbDQyY9YxGArxxc5GfOH6DDvDmxfFzE2g-4"
 
     },
     {
         nombre : "Cossete Mañuico Jauregui",
         cod : 20211606,
-        foto :"https://media.licdn.com/dms/image/v2/D4D03AQF8nSNL_IQbNg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1713766799500?e=1762992000&v=beta&t=q3islIj0kDjVO4QnRoNMTB8zzl84uevzrze_rbbYYxo"
+        foto :"https://media.licdn.com/dms/image/v2/D4D03AQF8nSNL_IQbNg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1713766799500?e=1765411200&v=beta&t=Yr6_Isfy1ai1H50n3W3JYxjgS4dQtCOVkbjD4CtJm1A"
 
     },
     {
         nombre : "Alvaro Mera Incio",
         cod : 20224973,
-        foto :"https://media.licdn.com/dms/image/v2/D4E03AQHZ2tt-uQDjVA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1726367165738?e=1762992000&v=beta&t=64z4M5IBZ35t2-u4rTozgvLPHIGNrvh1jUoFtRZTn7M"
+        foto :"https://media.licdn.com/dms/image/v2/D4E03AQHZ2tt-uQDjVA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1726367165721?e=1765411200&v=beta&t=uztpPJmo89Mq9mc-fzMBS-UDregLwytPr_it7qFkQDE"
 
     },
     {
         nombre : "Melissa Ruíz Delgado",
         cod : 20232637,
-        foto :"https://media.licdn.com/dms/image/v2/D4E03AQHdSzZ3tN1JKA/profile-displayphoto-shrink_800_800/B4EZZX5PerHoAc-/0/1745231346341?e=1762992000&v=beta&t=MCPOkuvNqCN6wYGRwGJMaJ4LLfCnD_IHUSa5I5DyNXc"
+        foto :"https://media.licdn.com/dms/image/v2/D4E03AQHdSzZ3tN1JKA/profile-displayphoto-shrink_400_400/B4EZZX5PerHoAg-/0/1745231346321?e=1765411200&v=beta&t=mFfi7mIqXohfjjiiGP9WIWcMOmAKW87utII1QZT749Y"
 
     }
 ]

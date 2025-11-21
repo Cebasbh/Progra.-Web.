@@ -20,7 +20,7 @@ html, body {
     overflow-y: auto;
 }
 #Main-Page{
-    zoom: 0.9;
+    zoom: 1;
     padding: 0px;
 	overflow-y: auto;
     height: 100%;

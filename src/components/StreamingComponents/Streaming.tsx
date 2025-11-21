@@ -21,14 +21,12 @@ const Streaming = (props : StreamingProps) => {
     })
     
     return (
-    <div className = "container-fluid vh-100">
-        <div className="row Main-Seccion">
-            <div className="col-9" id="Middle-Page">
-                <StreamingSection stream={stream[0]} following = {props.following} doFollowing={props.doFollowing}></StreamingSection>
-            </div>
-            <div className="col-3" id="Right-Page">
-                <RightSide mensajes = {mensajes} setMensajes = {SetMensajes} GetUser={props.GetUser}></RightSide>
-            </div>
+    <div className = "d-flex vh-100 no-scroll">
+        <div id="Middle-Page">
+            <StreamingSection stream={stream[0]} following = {props.following} doFollowing={props.doFollowing}></StreamingSection>
+        </div>
+        <div id="Right-Page">
+            <RightSide mensajes = {mensajes} setMensajes = {SetMensajes} GetUser={props.GetUser}></RightSide>
         </div>
     </div>
     )

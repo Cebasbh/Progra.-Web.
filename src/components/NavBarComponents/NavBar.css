@@ -44,3 +44,6 @@
 .Left-NavBar{
     text-align: right; /*Alinearlos a la derecha horizontal*/
 }
+.stars_coins{
+    color: rgb(var(--starlight-gray));
+}

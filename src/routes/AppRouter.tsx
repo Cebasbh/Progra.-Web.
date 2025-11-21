@@ -5,22 +5,21 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from '../context/AuthContext';
 import NavBar from '../components/NavBarComponents/NavBar';
 import SideBar from "../components/SideBar/SideBar";
-
 import Home from '../components/HomeComponents/Home';
 import ExploreTags from '../components/ExploreComponents/ExploreTags';
 import ExploreGames from "../components/ExploreComponents/ExploreGames";
 import Search from '../components/SearchComponents/Search';
 import Login from '../components/Login_SiginComponents/Login';
 import Signin from '../components/Login_SiginComponents/Signin';
+import TyC from '../components/Terms_AboutUsComponents/TyC';
+import Nosotros from '../components/Terms_AboutUsComponents/Nosotros';
+import Streaming from '../components/StreamingComponents/Streaming';
+import CardInput from '../components/PayingComponents/CardInput';
 
 import Profile from '../pages/Profile';
 import PrivateRoute from './PrivateRoute';
-import TyC from '../components/Terms_AboutUsComponents/TyC';
-import Nosotros from '../components/Terms_AboutUsComponents/Nosotros';
 import PanelControl from '../pages/PanelControl';
 import ConvertirseCreador from '../pages/ConvertirseCreador';
-import Streaming from '../components/StreamingComponents/Streaming';
-import CardInput from '../components/PayingComponents/CardInput';
 import GestionRegalos from '../pages/GestionRegalos';
 
 import "../GlobalObjects/Animations.css"
@@ -58,28 +57,26 @@ return (
 				<SideBar streams = {props.streams} following = {props.following}></SideBar>
 			</div>
 			<div className="col-10 d-flex flex-column" id="Main-Page">
-				<main className="flex-grow-1">
-					<Routes>
-						<Route path="/Home" element={<Home recommendedstreams={props.streams}/>}/>
-						<Route path="/exploretags" element={<ExploreTags tags={props.tags}/>}/>
-						<Route path="/exploretags/:name" element={<ExploreGames games={props.games}/>}/>
-						<Route path="/search/:name" element={<Search streams={props.streams}/>}/>
-						<Route path="/streaming/:name" element={<Streaming doFollowing={props.doFollowing} streams={props.streams} following = {props.following} GetUser={props.GetUser}/>} />
-						<Route path="/TyC" element={<TyC/>}/>
-						<Route path="/nosotros" element={<Nosotros/>}/>
-						<Route path="/login" element={<Login doLogIn={props.doLogIn}/>}/>
-						<Route path="/signin" element={<Signin doSignIn={props.doSignIn}/>}/>
-						<Route path="/payment" element={<CardInput GetUser={props.GetUser} doPayment={props.doPayment}/>}/>
+				<Routes>
+					<Route path="/Home" element={<Home recommendedstreams={props.streams}/>}/>
+					<Route path="/exploretags" element={<ExploreTags tags={props.tags}/>}/>
+					<Route path="/exploretags/:name" element={<ExploreGames games={props.games}/>}/>
+					<Route path="/search/:name" element={<Search streams={props.streams}/>}/>
+					<Route path="/streaming/:name" element={<Streaming doFollowing={props.doFollowing} streams={props.streams} following = {props.following} GetUser={props.GetUser}/>} />
+					<Route path="/TyC" element={<TyC/>}/>
+					<Route path="/nosotros" element={<Nosotros/>}/>
+					<Route path="/login" element={<Login doLogIn={props.doLogIn}/>}/>
+					<Route path="/signin" element={<Signin doSignIn={props.doSignIn}/>}/>
+					<Route path="/payment" element={<CardInput GetUser={props.GetUser} doPayment={props.doPayment}/>}/>
 
-						<Route path="/profile" element={<PrivateRoute><Profile/></PrivateRoute>}/>
-						<Route path="/panelcreador" element={<PrivateRoute><PanelControl/></PrivateRoute>}/>
-						<Route path="/convertirse-creador" element={<PrivateRoute><ConvertirseCreador/></PrivateRoute>}/>
-						<Route path="/gestion-regalos" element={<PrivateRoute><GestionRegalos/></PrivateRoute>}/>
-									
-						{/* Ruta 404 - redirige al home */}
-						<Route path="*" element={<Home recommendedstreams={props.streams}/>} />
-					</Routes>
-				</main>
+					<Route path="/profile" element={<PrivateRoute><Profile/></PrivateRoute>}/>
+					<Route path="/panelcreador" element={<PrivateRoute><PanelControl/></PrivateRoute>}/>
+					<Route path="/convertirse-creador" element={<PrivateRoute><ConvertirseCreador/></PrivateRoute>}/>
+					<Route path="/gestion-regalos" element={<PrivateRoute><GestionRegalos/></PrivateRoute>}/>
+								
+					{/* Ruta 404 - redirige al home */}
+					<Route path="*" element={<Home recommendedstreams={props.streams}/>} />
+				</Routes>
 		</div>
 		</div>
 	</AuthProvider>

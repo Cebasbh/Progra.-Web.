@@ -1,52 +1,23 @@
 .MiddleSide{
-    text-align: center;
     height: 100%;
+    overflow-y: auto;
 }
-.StreamViewers{
-    width: 100%;
-    display: flex;
-    align-items: end;
-    justify-content: right;
-    padding: 5%;
-    padding-right: 20%;
-}
+
 .VideoPlaceHolder{
     width: 100%;
     height: 80%;
+    object-fit: cover;
 }
-.StreamerDescriptionContainer{
-    padding: 2%;
-    width: 100%;
-    height: 15%;
-}
-.StreamerDescription{
-    display: flex;
-    width: 100%;
-    height: 100%;
-}
+
 .ImgStreamBox{
-    width: 7%;
-    height: fit-content;
+    width: 4rem;
     margin-right: 3%;
 }
+
 h4.TextBox{
-    font-size: medium;
-    margin-top: 4%;
-    margin-bottom: 4%;
+    font-size: 1rem;
 }
-.Left-Section-StreamerDescription{
-    display: flex;
-    text-align: left;
-    width: 80%;
-    height: 100%;
-}
-.Middle-Section-StreamerDescription{
-    display: flex;
-    height: 100%;
-    width: 12%;
-    text-align: right;
-}
-.Right-Section-StreamerDescription{
-    display: flex;
-    width: 8%;
+
+h3.TextBox{
+    font-size: 1.2rem;
 }

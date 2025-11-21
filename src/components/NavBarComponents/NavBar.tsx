@@ -36,7 +36,9 @@ return (
 		{props.user? (
 			<>
 				<ChatButton/>
+				<h5 className="fw-bold m-0 pt-2 stars_coins">12</h5>
 				<CoinsButton packs = {props.packs}/>
+				<h5 className="fw-bold m-0 pt-2 stars_coins">{props.user.coins}</h5>
 				<UserIcon user={props.user} doLogOut={props.doLogOut}/>
 			</>
 		) 

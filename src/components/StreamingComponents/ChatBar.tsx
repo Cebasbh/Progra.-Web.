@@ -33,7 +33,7 @@ const ChatBar = (props : ChatBarProps) => {
     return(
         <div className="ChatBar">
             <input className = "ChatInput" value = {TextChat} onChange = {TextChange} type="text" placeholder={user? "Send a message" : "Inicia sesión para enviar mensajes!"} disabled={!user}/>
-            <button className = "ChatButton" onClick={() => (TextEnter(TextChat))} disabled={!user || TextChat === ""}>Envíar</button>
+            <button className = "ChatButton" onClick={() => (TextEnter(TextChat))} disabled={!user || TextChat === ""}>E</button>
         </div>
     )
 }

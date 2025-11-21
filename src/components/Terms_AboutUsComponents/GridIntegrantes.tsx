@@ -22,9 +22,6 @@ const CardGrid = (props: CardGridProps) => {
         }
     </div>
     </div>
-
-    
-
 }
 
 interface CardGridProps {

@@ -1,14 +1,13 @@
 .RightSide{
     text-align: center;
     height: 100%;
-    border: 1px solid black;
 }
 .ChatTitle{
-    height: 5%;
+    height: 2rem;
     border-bottom: 1px solid black;
 }
 .RightSideScroll{
-    height: 82.2%;
+    height: 39rem;
     overflow-y: auto;
     text-align: left;
 }

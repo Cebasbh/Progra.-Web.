@@ -62,6 +62,10 @@ export type User = {
     bio : string;
     clips : string[];
     medals : Medal[];
+    xlink : string;
+    youtubelink : string;
+    instagramlink : string;
+    tiktoklink : string;
 }
 
 

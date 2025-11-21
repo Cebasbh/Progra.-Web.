@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import { useState } from "react";
 import type { Pack } from "../../GlobalObjects/Objects_DataTypes";
 import type { User } from "../../GlobalObjects/Objects_DataTypes";
 import "./PaymentGateway.css"
@@ -10,17 +11,34 @@ interface PaymentGatewayProps {
 const PaymentGateway = (props : PaymentGatewayProps) => {
 	const location = useLocation();
 	const { pack } = (location.state || {}) as { pack?: Pack };
-
+	const [value, setValue] = useState<number>(0);
+	const [price, setPrice] = useState<number>(0);
+	//TODO: Ponerlo como variables de estado
+	const onStarsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+			const numericValue = parseInt(e.target.value) || 0;
+			const limitedValue = Math.min(numericValue, 9999);
+			setValue(limitedValue);
+			setPrice(limitedValue * 5 / 100)
+		}
 	return (
 		<div className="alert alert-info mt-4 text-card border-0">
 			<h1>Completar compra</h1>
 			<div className="d-flex justify-content-between align-items-center mt-4">
 				<div className="text-start">
-					//TODO FIX PaymentGateway
-					{pack? <h5 className="fw-bold">{pack.name}</h5> : <h5 className="fw-bold">CANTIDAD ARBITRARIA</h5>}
+					{pack?
+					<div>
+						<h5 className="fw-bold">{pack.name}</h5> 
+						<h5 className="fw-bold my-0"> {pack.value} Stars</h5>
+					</div>
+					: 
+					<div className="d-flex justify-content-between align-items-center mt-4">
+						<input inputMode="numeric" className="form-control numberInput text-center border-0" value={value} onChange={onStarsChange}/> 
+						<h5 className="fw-bold mx-3 my-0">Stars</h5>
+					</div>
+					}
 				</div>
 				<div className="text-end">
-					<h5 className="fw-bold">PEN {pack?.finalprice}</h5>
+					<h5 className="fw-bold mx-3 my-0">PEN {pack? pack.finalprice : price }</h5>
 				</div>
 			</div>
 			<hr className="w-30 mx-auto border-2"/> 
@@ -60,7 +78,7 @@ const PaymentGateway = (props : PaymentGatewayProps) => {
 			</form>
 			</div>
 			<div className="modal-footer mt-3">
-				<button type="button" className="btn btn-primary page-button" onClick={() => {props.doPayment(props.GetUser(),pack? pack.value : 1000)}}>Realizar Pago</button>
+				<button type="button" className="btn btn-primary page-button" onClick={() => {props.doPayment(props.GetUser(),pack? pack.value : value)}}>Realizar Pago</button>
 			</div>
 			</div>
 		)

@@ -25,6 +25,7 @@ const FollowFunction = (user : User) =>{
             const newfollowing = [...following]
             newfollowing.splice(i, 1) 
             setFollowing(newfollowing)
+            return
         }   
     }
     setFollowing([...following, user])
@@ -35,6 +36,8 @@ const PayingFunction = (user : User | null, bought : number) => {
         return
     }
     setUsers(prevUsers => prevUsers.map((u : User) => (u.id === user?.id? { ...u, coins: u.coins + bought } : u)))
+
+    setUser(prevUser => prevUser ? { ...prevUser, coins: prevUser.coins + bought } : null);
 }
 
 const LogInFunction = (email : string, pass : string) => {
@@ -80,14 +83,17 @@ const SignInFunction = (name : string, email : string, pass : string) => {
         "points" : [],
         "bio" : "",
         "clips" : [],
-        "medals" : []
+        "medals" : [],
+        "xlink": "",
+        "youtubelink": "",
+        "instagramlink": "",
+        "tiktoklink": ""
     }
     setUsers([...users, newuser])
 }
 
 const GetUser = () => {
     const userJson = localStorage.getItem(USER_STORAGE_KEY);
-    console.log(userJson);
     if (!userJson) {
         return null;
     }
