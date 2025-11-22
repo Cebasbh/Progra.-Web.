@@ -6,6 +6,7 @@ import type { GameTag } from "./GlobalObjects/Objects_DataTypes";
 import type { Game } from "./GlobalObjects/Objects_DataTypes";
 import type { User } from "./GlobalObjects/Objects_DataTypes";
 import type { Pack } from "./GlobalObjects/Objects_DataTypes";
+import type { Message } from "./GlobalObjects/Objects_DataTypes";
 
 const App = () => {
 const [user, setUser] = useState<User | null>(null);
@@ -19,6 +20,7 @@ const [users, setUsers] = useState <User[]>([]);
 
 //Para guardar el usuario
 const USER_STORAGE_KEY = "streaming_user";
+
 const FollowFunction = (user : User) =>{
     for (let i = 0; i < following.length; i++) {
         if (following[i].id == user.id){
@@ -31,6 +33,45 @@ const FollowFunction = (user : User) =>{
     setFollowing([...following, user])
 }
 
+const ChatFunction = (message : Message, stream : Stream) =>{
+    for (let i = 0; i < streams.length; i++) {
+        if (streams[i].id == stream.id){
+            const copy = [...streams];
+            copy[i] = {...copy[i], messagelist: [...copy[i].messagelist, message]};
+            setStreams(copy)
+            for (let j = 0; j < users.length; j++) {
+                if (users[j].id == message.user.id){
+                    const copyusers = [...users];
+                    const currentMessagessent = [...copyusers[j].messagessent];
+                    const streamerIndex = currentMessagessent.findIndex(
+                        ([_, streamUser]) => streamUser.id === stream.user.id
+                    );
+                    if (streamerIndex !== -1) {
+                        currentMessagessent[streamerIndex] = [
+                            currentMessagessent[streamerIndex][0] + 1,
+                            currentMessagessent[streamerIndex][1]
+                        ];
+                    } else {
+                        currentMessagessent.push([1, stream.user]);
+                    }
+                    copyusers[j] = {...copyusers[j], messagessent: currentMessagessent};
+                    setUsers(copyusers)
+                    ReloadUser()
+                    return
+                }
+            }
+        }   
+    }
+}
+const ReloadUser = () => {
+    for (const reloaded of users) {
+        if (reloaded.id === user?.id) {
+            setUser(reloaded);
+            localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(reloaded));
+            return 1;
+        }
+    }
+};
 const PayingFunction = (user : User | null, bought : number) => {
     if (!user){
         return
@@ -77,17 +118,29 @@ const SignInFunction = (name : string, email : string, pass : string) => {
         "coins": 0,
         "pfp" : "https://static-cdn.jtvnw.net/user-default-pictures-uv/de130ab0-def7-11e9-b668-784f43822e80-profile_image-70x70.png",
         "online" : false,
+        "bio" : "",
         "followed" : [],
         "followers" : [],
         "friends" : [],
-        "points" : [],
-        "bio" : "",
+        "pointsrecieved" : [],
+        "messagessent" : [],
+        "medalsrecieved" : [],
+        "streaminghours" : 0,
+        "streamerlevel" : {
+            "id": 1,
+            "level": "Astronauta Novato",
+            "min_followers": 0,
+            "max_followers": 100,
+            "min_hours": 0,
+            "max_hours": 50
+        },
+        "medalsforviewers" : [],
         "clips" : [],
-        "medals" : [],
         "xlink": "",
         "youtubelink": "",
         "instagramlink": "",
-        "tiktoklink": ""
+        "tiktoklink": "",
+        "discordlink": ""
     }
     setUsers([...users, newuser])
 }
@@ -143,7 +196,7 @@ useEffect(() => {
     fetchData();
 }, []);
 
-return <AppRouter streams={streams} tags={tags} games={games} following={following} packs = {packs} users = {users} user = {user} doPayment={PayingFunction} doFollowing={FollowFunction} doLogIn={LogInFunction} doSignIn={SignInFunction} doLogOut={LogOutFunction} GetUser={GetUser}/>;
+return <AppRouter streams={streams} tags={tags} games={games} following={following} packs = {packs} users = {users} user = {user} doPayment={PayingFunction} doFollowing={FollowFunction} doChatting={ChatFunction} doLogIn={LogInFunction} doSignIn={SignInFunction} doLogOut={LogOutFunction} GetUser={GetUser}/>;
 };
 
 export default App;

@@ -13,7 +13,6 @@ export type Message = {
     texto : string
     hora : string
     user : User
-    inchat : User
 }
 
 export type GameTag = {
@@ -40,12 +39,20 @@ export type Pack = {
 export type Point = {
     id: number;
     quantity : number;
-    fromStreamer : User;
 }
 export type Medal = {
     id: number;
-    quality : string;
-    fromStreamer : User;
+    level : string;
+    min_messages : number;
+    max_messages : number;
+}
+export type Level = {
+    id: number;
+    level : string;
+    min_followers : number;
+    max_followers : number;
+    min_hours : number;
+    max_hours : number
 }
 export type User = {
     id: number;
@@ -55,17 +62,27 @@ export type User = {
     coins: number;
     pfp: string;
     online: boolean;
+
+    bio : string;
     followed : User[];
     followers : User[];
+    
     friends : User[];
-    points : Point[];
-    bio : string;
+    
+    pointsrecieved : [Point, User][];
+    messagessent : [number, User][];
+    medalsrecieved : [Medal, User][];
+
+    streaminghours : number;
+    streamerlevel : Level;
+    medalsforviewers : Medal[];
     clips : string[];
-    medals : Medal[];
+
     xlink : string;
     youtubelink : string;
     instagramlink : string;
     tiktoklink : string;
+    discordlink : string
 }
 
 

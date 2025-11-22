@@ -27,6 +27,15 @@ html, body {
 }
 .no-scroll {
     overflow-y: hidden;
+    overflow-x: hidden;
+}
+.fill-below {
+    flex: 1;
+}
+.fill-sides{
+    flex-grow: 1;
+    flex-shrink: 0;
+    min-width: 0;
 }
 .temp{
     color: white;
@@ -42,6 +51,9 @@ html, body {
 }
 .card-image {
     position: relative;
+}
+.page-text {
+    color: rgb(var(--starlight-gray)) !important;
 }
 .text-muted {
     color: rgb(var(--dusty-nebula)) !important;

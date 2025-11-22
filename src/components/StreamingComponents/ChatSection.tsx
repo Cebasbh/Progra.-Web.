@@ -2,13 +2,14 @@ import ChatMessage from "./ChatMessage"
 import ChatBar from "./ChatBar"
 import type { Message } from "../../GlobalObjects/Objects_DataTypes"
 import type { User } from "../../GlobalObjects/Objects_DataTypes"
-import "./RightSide.css"
-interface RightSideProps {
-    mensajes : Message[]
-    setMensajes : (newmensajes : Message[]) => void
+import type { Stream } from "../../GlobalObjects/Objects_DataTypes"
+import "./ChatSection.css"
+interface ChatSectionProps {
+    doChatting : (message : Message, stream : Stream) => void
     GetUser : () => User | null
+    stream : Stream
 }
-const RightSide = (props: RightSideProps) => {
+const ChatSection = (props: ChatSectionProps) => {
     return(
         <div className="RightSide">
             <div className="ChatTitle">
@@ -16,15 +17,15 @@ const RightSide = (props: RightSideProps) => {
             </div>
             <div className="RightSideScroll">
                 {
-                    props.mensajes.map((mensaje : Message) => {
+                    props.stream.messagelist.map((mensaje : Message) => {
                         return(
                             <ChatMessage mensaje ={mensaje}></ChatMessage>
                         )
                     })
                 }
             </div>
-            <ChatBar mensajes={props.mensajes} setMensajes = {props.setMensajes} GetUser={props.GetUser} />
+            <ChatBar doChatting = {props.doChatting} stream = {props.stream} GetUser={props.GetUser} />
         </div>
     )
 }
-export default RightSide
+export default ChatSection

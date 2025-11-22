@@ -30,6 +30,7 @@ import type { GameTag } from '../GlobalObjects/Objects_DataTypes';
 import type { Game } from '../GlobalObjects/Objects_DataTypes';
 import type { User } from '../GlobalObjects/Objects_DataTypes';
 import type { Pack } from '../GlobalObjects/Objects_DataTypes';
+import type { Message } from '../GlobalObjects/Objects_DataTypes';
 
 interface AppRouterProps {
 	streams: Stream[]
@@ -44,6 +45,7 @@ interface AppRouterProps {
 	doLogIn : (email : string, pass: string) => void
 	doSignIn : (name : string, email : string, pass: string) => void
 	doLogOut : () => void
+	doChatting : (message : Message, stream : Stream) => void
 	GetUser : () => User | null
 }
 
@@ -62,7 +64,7 @@ return (
 					<Route path="/exploretags" element={<ExploreTags tags={props.tags}/>}/>
 					<Route path="/exploretags/:name" element={<ExploreGames games={props.games}/>}/>
 					<Route path="/search/:name" element={<Search streams={props.streams}/>}/>
-					<Route path="/streaming/:name" element={<Streaming doFollowing={props.doFollowing} streams={props.streams} following = {props.following} GetUser={props.GetUser}/>} />
+					<Route path="/streaming/:name" element={<Streaming doFollowing={props.doFollowing} streams={props.streams} following = {props.following} GetUser={props.GetUser} doChatting={props.doChatting}/>} />
 					<Route path="/TyC" element={<TyC/>}/>
 					<Route path="/nosotros" element={<Nosotros/>}/>
 					<Route path="/login" element={<Login doLogIn={props.doLogIn}/>}/>
