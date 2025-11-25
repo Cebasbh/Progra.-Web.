@@ -1,8 +1,9 @@
 .ChatInput{
-    width: 84%;
+    width: 100%;
 }
 .ChatButton{
-    width: 16%;
+    width: auto;
+    font-size: 12px;
 }
 .ChatBar{
     display: flex;

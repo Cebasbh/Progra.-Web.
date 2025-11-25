@@ -7,6 +7,8 @@ import type { Game } from "./GlobalObjects/Objects_DataTypes";
 import type { User } from "./GlobalObjects/Objects_DataTypes";
 import type { Pack } from "./GlobalObjects/Objects_DataTypes";
 import type { Message } from "./GlobalObjects/Objects_DataTypes";
+import type { Level } from "./GlobalObjects/Objects_DataTypes";
+import type { Medal } from "./GlobalObjects/Objects_DataTypes";
 
 const App = () => {
 const [user, setUser] = useState<User | null>(null);
@@ -14,6 +16,8 @@ const [streams, setStreams] = useState<Stream[]>([]);
 const [tags, setTags] = useState<GameTag[]>([]);
 const [games, setGames] = useState<Game[]>([]);
 const [following, setFollowing] = useState<User[]>([]);
+const [levels, setLevels] = useState<Level[]>([]);
+const [medals, setMedals] = useState<Medal[]>([]);
 
 const [packs, setPacks] = useState <Pack[]>([]);
 const [users, setUsers] = useState <User[]>([]);
@@ -33,36 +37,47 @@ const FollowFunction = (user : User) =>{
     setFollowing([...following, user])
 }
 
-const ChatFunction = (message : Message, stream : Stream) =>{
+const ChatFunction = (message: Message, stream: Stream) => {
     for (let i = 0; i < streams.length; i++) {
-        if (streams[i].id == stream.id){
+        if (streams[i].id == stream.id) {
             const copy = [...streams];
-            copy[i] = {...copy[i], messagelist: [...copy[i].messagelist, message]};
-            setStreams(copy)
+            copy[i] = { ...copy[i], messagelist: [...copy[i].messagelist, message] };
+            setStreams(copy);
+            
             for (let j = 0; j < users.length; j++) {
-                if (users[j].id == message.user.id){
+                if (users[j].id == message.user.id) {
                     const copyusers = [...users];
                     const currentMessagessent = [...copyusers[j].messagessent];
-                    const streamerIndex = currentMessagessent.findIndex(
-                        ([_, streamUser]) => streamUser.id === stream.user.id
-                    );
+                    const streamerId = stream.user.id;
+
+                    let streamerIndex = -1;
+                    for (let k = 0; k < currentMessagessent.length; k++) {
+                        if (currentMessagessent[k][1].id === streamerId) {
+                            streamerIndex = k;
+                            break;
+                        }
+                    }
+                    
                     if (streamerIndex !== -1) {
-                        currentMessagessent[streamerIndex] = [
-                            currentMessagessent[streamerIndex][0] + 1,
-                            currentMessagessent[streamerIndex][1]
+                        const newpoints = currentMessagessent[streamerId][0] + 1
+                        currentMessagessent[streamerId] = [
+                            newpoints,
+                            currentMessagessent[streamerId][1]
                         ];
                     } else {
-                        currentMessagessent.push([1, stream.user]);
+                        currentMessagessent[streamerId] = [1, stream.user]
                     }
-                    copyusers[j] = {...copyusers[j], messagessent: currentMessagessent};
-                    setUsers(copyusers)
-                    ReloadUser()
-                    return
+                    copyusers[j] = { ...copyusers[j], messagessent: currentMessagessent };
+                    setUsers(copyusers);
+                    
+
+                    ReloadUser();
+                    return;
                 }
             }
         }   
     }
-}
+};
 const ReloadUser = () => {
     for (const reloaded of users) {
         if (reloaded.id === user?.id) {
@@ -80,7 +95,7 @@ const PayingFunction = (user : User | null, bought : number) => {
 
     setUser(prevUser => prevUser ? { ...prevUser, coins: prevUser.coins + bought } : null);
 }
-
+//TODO: Si alguien está registrado no aparezca botón en about us
 const LogInFunction = (email : string, pass : string) => {
     if (email == ""  || pass == ""){
             throw new Error("Por favor, rellena todos los campos");
@@ -182,12 +197,20 @@ useEffect(() => {
             const response6 = await fetch("./data/users.json");
             const data6 = await response6.json();
             setUsers(data6);
+            const response7 = await fetch("./data/levels.json");
+            const data7 = await response7.json();
+            setLevels(data7);
+            const response8 = await fetch("./data/medals.json");
+            const data8 = await response8.json();
+            setMedals(data8);
             console.log("Streams loaded:", data1);
             console.log("Tags loaded:", data2);
             console.log("Games loaded:", data3);
             console.log("Following loaded:", data4);
             console.log("Packs loaded:", data5);
             console.log("Users loaded:", data6);
+            console.log("Levels loaded:", data7);
+            console.log("Medals loaded:", data8);
             console.log("User loaded:", user);
         } catch (error) {
             console.error("Error al leer JSON:", error);

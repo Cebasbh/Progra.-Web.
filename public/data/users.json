@@ -71,7 +71,7 @@
         "coins": 0,
         "pfp": "https://static-cdn.jtvnw.net/jtv_user_pictures/6ac8f214-a7f3-461f-8181-ce0c25fa4f04-profile_image-300x300.png",
         "online": true,
-        "bio": "",
+        "bio": "ONE OF THE FIRST PLAYERS TO TOUCH THE GAME, THE ABSOLUTE GOAT JUNGLER, UNDENIABLY DIRTY INTER",
         "followed": [],
         "followers": [],
         "friends": [],
@@ -173,7 +173,48 @@
         "friends": [],
         "pointsrecieved": [],
         "messagessent": [],
-        "medalsrecieved": [],
+        "medalsrecieved": [
+            [
+                {
+                    "id": 1,
+                    "level": "Plutón",
+                    "min_messages": 0,
+                    "max_messages": 10
+                },
+                {
+                "id": 1,
+                "name": "ElRichMC",
+                "email": "elrichmc@hotmail.com",
+                "password": "elrichmc123",
+                "coins": 0,
+                "pfp": "https://static-cdn.jtvnw.net/jtv_user_pictures/f8bb9c67-375d-478f-8853-ae669e8563b6-profile_image-300x300.jpeg",
+                "online": true,
+                "bio": "",
+                "followed": [],
+                "followers": [],
+                "friends": [],
+                "pointsrecieved": [],
+                "messagessent": [],
+                "medalsrecieved": [],
+                "streaminghours": 0,
+                "streamerlevel": {
+                    "id": 1,
+                    "level": "Astronauta Novato",
+                    "min_followers": 0,
+                    "max_followers": 100,
+                    "min_hours": 0,
+                    "max_hours": 50
+                },
+                "medalsforviewers": [],
+                "clips": [],
+                "xlink": "https://x.com/ElRichMC",
+                "youtubelink": "https://youtube.com/ElRichMC",
+                "instagramlink": "",
+                "tiktoklink": "https://tiktok.com/@ElRichMC",
+                "discordlink": ""
+            }
+            ]
+        ],
         "streaminghours": 0,
         "streamerlevel": {
             "id": 1,
@@ -301,7 +342,48 @@
         "friends": [],
         "pointsrecieved": [],
         "messagessent": [],
-        "medalsrecieved": [],
+        "medalsrecieved": [
+            [
+                {
+                    "id": 1,
+                    "level": "Plutón",
+                    "min_messages": 0,
+                    "max_messages": 10
+                },
+                {
+                "id": 1,
+                "name": "ElRichMC",
+                "email": "elrichmc@hotmail.com",
+                "password": "elrichmc123",
+                "coins": 0,
+                "pfp": "https://static-cdn.jtvnw.net/jtv_user_pictures/f8bb9c67-375d-478f-8853-ae669e8563b6-profile_image-300x300.jpeg",
+                "online": true,
+                "bio": "",
+                "followed": [],
+                "followers": [],
+                "friends": [],
+                "pointsrecieved": [],
+                "messagessent": [],
+                "medalsrecieved": [],
+                "streaminghours": 0,
+                "streamerlevel": {
+                    "id": 1,
+                    "level": "Astronauta Novato",
+                    "min_followers": 0,
+                    "max_followers": 100,
+                    "min_hours": 0,
+                    "max_hours": 50
+                },
+                "medalsforviewers": [],
+                "clips": [],
+                "xlink": "https://x.com/ElRichMC",
+                "youtubelink": "https://youtube.com/ElRichMC",
+                "instagramlink": "",
+                "tiktoklink": "https://tiktok.com/@ElRichMC",
+                "discordlink": ""
+            }
+            ]
+        ],
         "streaminghours": 0,
         "streamerlevel": {
             "id": 1,

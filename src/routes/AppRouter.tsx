@@ -16,10 +16,9 @@ import Nosotros from '../components/Terms_AboutUsComponents/Nosotros';
 import Streaming from '../components/StreamingComponents/Streaming';
 import CardInput from '../components/PayingComponents/CardInput';
 
-import Profile from '../pages/Profile';
+import Profile from '../components/ProfileComponents/Profile';
 import PrivateRoute from './PrivateRoute';
 import PanelControl from '../pages/PanelControl';
-import ConvertirseCreador from '../pages/ConvertirseCreador';
 import GestionRegalos from '../pages/GestionRegalos';
 
 import "../GlobalObjects/Animations.css"
@@ -63,7 +62,7 @@ return (
 					<Route path="/Home" element={<Home recommendedstreams={props.streams}/>}/>
 					<Route path="/exploretags" element={<ExploreTags tags={props.tags}/>}/>
 					<Route path="/exploretags/:name" element={<ExploreGames games={props.games}/>}/>
-					<Route path="/search/:name" element={<Search streams={props.streams}/>}/>
+					<Route path="/search/:name" element={<Search users={props.users}streams={props.streams}/>}/>
 					<Route path="/streaming/:name" element={<Streaming doFollowing={props.doFollowing} streams={props.streams} following = {props.following} GetUser={props.GetUser} doChatting={props.doChatting}/>} />
 					<Route path="/TyC" element={<TyC/>}/>
 					<Route path="/nosotros" element={<Nosotros/>}/>
@@ -71,9 +70,8 @@ return (
 					<Route path="/signin" element={<Signin doSignIn={props.doSignIn}/>}/>
 					<Route path="/payment" element={<CardInput GetUser={props.GetUser} doPayment={props.doPayment}/>}/>
 
-					<Route path="/profile" element={<PrivateRoute><Profile/></PrivateRoute>}/>
+					<Route path="/profile/:name" element={<Profile doFollowing={props.doFollowing} following = {props.following} users = {props.users} GetUser={props.GetUser}/>}/>
 					<Route path="/panelcreador" element={<PrivateRoute><PanelControl/></PrivateRoute>}/>
-					<Route path="/convertirse-creador" element={<PrivateRoute><ConvertirseCreador/></PrivateRoute>}/>
 					<Route path="/gestion-regalos" element={<PrivateRoute><GestionRegalos/></PrivateRoute>}/>
 								
 					{/* Ruta 404 - redirige al home */}

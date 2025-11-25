@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PanelHeader from '../components/PanelHeader';
 import PanelStream from '../components/PanelStream';
 import PanelOptions from '../components/PanelOptions';
-import Videos from './Videos';
+import Videos from '../components/ProfileComponents/Videos';
 import Analiticas from './Analiticas';
 import Configuracion from './Configuracion';
 import GestionRegalos from './GestionRegalos';

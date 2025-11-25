@@ -1,4 +1,5 @@
 import { useState } from "react"
+import PointsBar from "./PointsBar"
 import type { Message } from "../../GlobalObjects/Objects_DataTypes"
 import type { User } from "../../GlobalObjects/Objects_DataTypes"
 import type { Stream } from "../../GlobalObjects/Objects_DataTypes"
@@ -30,10 +31,16 @@ const ChatBar = (props : ChatBarProps) => {
         console.log(user)
     }
     return(
-        <div className="ChatBar">
-            <input className = "ChatInput" value = {TextChat} onChange = {TextChange} type="text" placeholder={user? "Send a message" : "Inicia sesión para enviar mensajes!"} disabled={!user}/>
-            <button className = "ChatButton" onClick={handleChat} disabled={!user || TextChat === ""}>E</button>
+        <div>
+            <div className="ChatBar">
+                <input className = "ChatInput" value = {TextChat} onChange = {TextChange} type="text" placeholder={user? "Send a message" : "Inicia sesión para enviar mensajes!"} disabled={!user}/>
+            </div>
+            <div className="d-flex justify-content-between">
+                <PointsBar/>
+                <button className = "ChatButton" onClick={handleChat} disabled={!user || TextChat === ""}>Enviar</button>
+            </div>
         </div>
+        
     )
 }
 export default ChatBar;

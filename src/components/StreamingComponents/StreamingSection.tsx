@@ -1,6 +1,7 @@
 import FollowButton from "./FollowButton"
 import ProgressBar from "./ProgressBar"
 import SocialLink from "./SocialLink"
+import { Link } from "react-router-dom"
 import type { Stream } from "../../GlobalObjects/Objects_DataTypes"
 import type { User } from "../../GlobalObjects/Objects_DataTypes"
 import "./StreamingSection.css"
@@ -32,7 +33,9 @@ const StreamingSection = (props : StreamingSectionProps) => {
             <div className = "d-flex justify-content-between my-3">
                 <div className="text-start d-flex align-items-center">
 					<div className="ImgStreamBox mx-3">
-                        <img className="StreamerImg"src={ props.stream.user.pfp } alt="Img"/>
+                        <Link to={`/profile/${props.stream.user.name}`}>
+                            <img className="StreamerImg"src={ props.stream.user.pfp } alt="Img"/>
+                        </Link>
                     </div>
                     <div>
                         <h3 className="TextBox">{ props.stream.user.name }</h3>
@@ -60,10 +63,10 @@ const StreamingSection = (props : StreamingSectionProps) => {
                             </div>
                             <div className="text-end me-5">
                                 <SocialLink link={props.stream.user.xlink} icon = "bi-twitter-x" text = "Twitter"></SocialLink>
-                                <SocialLink link={props.stream.user.youtubelink} icon = "bi-youtube" text = "Youtube"></SocialLink>
                                 <SocialLink link={props.stream.user.instagramlink} icon = "bi-instagram" text = "Instagram"></SocialLink>
                                 <SocialLink link={props.stream.user.tiktoklink} icon = "bi-tiktok" text = "Tiktok"></SocialLink>
                                 <SocialLink link={props.stream.user.discordlink} icon = "bi-discord" text = "Discord"></SocialLink>
+                                <SocialLink link={props.stream.user.youtubelink} icon = "bi-youtube" text = "Youtube"></SocialLink>
                             </div>
                         </div>
                     </div>

@@ -5,7 +5,7 @@ export type Stream = {
     thumbnail: string;
     title: string;
     viewersnumber : number;
-    viewers : User[];
+    viewersid : User[];
     messagelist : Message[]
 };
 

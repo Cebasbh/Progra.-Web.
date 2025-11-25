@@ -1,12 +1,19 @@
 .RightSide{
-    text-align: center;
+    display: flex;
+    flex-direction: column;
     height: 100%;
+    text-align: center;
 }
+
 .ChatTitle{
     border-bottom: 1px solid black;
+    padding: 10px; 
+    flex-shrink: 0;
 }
+
 .RightSideScroll{
-    height: 100%;
+    flex: 1;
     overflow-y: auto;
     text-align: left;
+    padding: 10px;
 }

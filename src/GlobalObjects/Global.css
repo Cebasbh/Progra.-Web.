@@ -1,14 +1,14 @@
 :root {
-    --space-black: 11, 12, 16; /*Fondo Principal*/
-    --nebula-violet: 110, 60, 160;  /*Cards, NavBar*/
-    --galactic-indigo: 46, 26, 71;  /*Bordes*/
+    --space-black: 9, 0, 64;
+    --nebula-violet: 71, 19, 150;
+    --galactic-indigo: 71, 19, 71;  /*Bordes*/
     --starlight-gray: 224, 224, 224;  /*Texto Principal*/
     --dusty-nebula: 166, 156, 172;  /*Texto Secundario*/
     --supernova-yellow: 255, 210, 63;
     --red-giant-orange: 255, 107, 53;  /*Botones 2*/
     --blue-dwarf: 46, 196, 182;  /*Hover luminoso*/
-    --stellar-blue: 72, 135, 207;  /*Botones*/
-    --luminous-teal: 37, 203, 168;
+    --stellar-blue: 177, 59, 255;
+    --luminous-teal: 255, 204, 0;
 }
 html, body {
     height: 100% !important;

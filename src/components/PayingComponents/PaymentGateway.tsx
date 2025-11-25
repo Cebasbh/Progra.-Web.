@@ -13,7 +13,6 @@ const PaymentGateway = (props : PaymentGatewayProps) => {
 	const { pack } = (location.state || {}) as { pack?: Pack };
 	const [value, setValue] = useState<number>(0);
 	const [price, setPrice] = useState<number>(0);
-	//TODO: Ponerlo como variables de estado
 	const onStarsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 			const numericValue = parseInt(e.target.value) || 0;
 			const limitedValue = Math.min(numericValue, 9999);

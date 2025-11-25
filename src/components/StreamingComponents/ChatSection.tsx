@@ -1,5 +1,6 @@
 import ChatMessage from "./ChatMessage"
 import ChatBar from "./ChatBar"
+import ProgressBar from "./ProgressBar"
 import type { Message } from "../../GlobalObjects/Objects_DataTypes"
 import type { User } from "../../GlobalObjects/Objects_DataTypes"
 import type { Stream } from "../../GlobalObjects/Objects_DataTypes"
@@ -13,7 +14,13 @@ const ChatSection = (props: ChatSectionProps) => {
     return(
         <div className="RightSide">
             <div className="ChatTitle">
-                <h5 className="TextBox">Stream Chat</h5>
+                {props.GetUser() ? 
+                    <ProgressBar 
+                        actual={props.GetUser()?.messagessent[props.stream.user.id]?.[0] ?? 0} 
+                        max={props.GetUser()?.medalsrecieved[0]?.[0].max_messages ?? 0} 
+                        topic={"mensajes"} 
+                    /> 
+                    : ""}
             </div>
             <div className="RightSideScroll">
                 {
@@ -25,6 +32,7 @@ const ChatSection = (props: ChatSectionProps) => {
                 }
             </div>
             <ChatBar doChatting = {props.doChatting} stream = {props.stream} GetUser={props.GetUser} />
+            
         </div>
     )
 }

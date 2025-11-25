@@ -1,6 +1,5 @@
 import BrandLogo from './BrandLogo';
 import CoinsButton from './CoinsButton';
-import ChatButton from "./ChatButton"
 import UserIcon from './UserIcon';
 import LoginButtons from './LoginButtons';
 import ThreeDotsIcon from './ThreeDotsIcon';
@@ -35,8 +34,6 @@ return (
 		<div className="d-flex align-items-center justify-content-end gap-2">
 		{props.user? (
 			<>
-				<ChatButton/>
-				<h5 className="fw-bold m-0 pt-2 stars_coins">12</h5>
 				<CoinsButton packs = {props.packs}/>
 				<h5 className="fw-bold m-0 pt-2 stars_coins">{props.user.coins}</h5>
 				<UserIcon user={props.user} doLogOut={props.doLogOut}/>

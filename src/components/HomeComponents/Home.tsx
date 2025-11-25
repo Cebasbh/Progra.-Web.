@@ -17,7 +17,7 @@ interface HomeProps {
 }
 const Home = (props : HomeProps) => {
   return (
-    <div>
+    <div className='px-4'>
         <Carousel slides={props.recommendedstreams} />
         <Feed streams={props.recommendedstreams} />
     </div>

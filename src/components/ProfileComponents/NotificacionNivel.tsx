@@ -1,4 +1,3 @@
-
 import './NotificacionNivel.css';
 
 const NotificacionNivel = () => {

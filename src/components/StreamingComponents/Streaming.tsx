@@ -20,7 +20,7 @@ const Streaming = (props : StreamingProps) => {
     })
     
     return (
-    <div className = "d-flex vh-100">
+    <div className = "d-flex vh-100 no-scroll">
         <div id="Middle-Page">
             <StreamingSection stream={stream[0]} following = {props.following} doFollowing={props.doFollowing}></StreamingSection>
         </div>
