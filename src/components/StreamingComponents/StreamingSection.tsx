@@ -1,3 +1,5 @@
+import { useState } from "react"
+import { useEffect } from "react"
 import FollowButton from "./FollowButton"
 import ProgressBar from "./ProgressBar"
 import SocialLink from "./SocialLink"
@@ -9,6 +11,7 @@ import "./StreamingSection.css"
 interface StreamingSectionProps{
     stream : Stream
     following: User[];
+    GetUser : () => User | null
     doFollowing : (user: User) => void
 }
 const StreamingSection = (props : StreamingSectionProps) => {
@@ -16,6 +19,17 @@ const StreamingSection = (props : StreamingSectionProps) => {
         const cociente = dividendo/divisor;
         return(cociente.toFixed(decimas))
     }
+    const [Issighting, SetIssighting] = useState<boolean>(true)
+    const user = props.GetUser()
+    useEffect(() => {
+        SetIssighting(true)
+        if (!user){
+            return
+        }
+        if (props.stream.user.name == user.name){
+            SetIssighting(false)
+        }
+    },[user, props.stream]);
     const isFollowing = () =>{
         let following = false
         for (let i = 0; i < props.following.length; i++) {
@@ -44,7 +58,12 @@ const StreamingSection = (props : StreamingSectionProps) => {
                     </div>
 				</div>
 				<div className="text-start ">
-					<FollowButton doFollowing = {props.doFollowing} isFollowing = {isFollowing()} user={props.stream.user}></FollowButton>
+                    {
+                        !Issighting? 
+                        ""
+                        : 
+                        <FollowButton doFollowing = {props.doFollowing} isFollowing = {isFollowing()} user={props.stream.user}></FollowButton>
+                    }     
                     <div className="ms-4">
                         <span className="badge bg-danger">{props.stream.viewersnumber >= 1000000? DivisiónAproximada(props.stream.viewersnumber,1000000,1) + " M ": props.stream.viewersnumber >= 1000? DivisiónAproximada(props.stream.viewersnumber,1000,1) + " K ":props.stream.viewersnumber}viewers</span>
                     </div>

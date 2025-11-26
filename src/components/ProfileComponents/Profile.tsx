@@ -24,13 +24,13 @@ const Profile = (props : ProfileProps) => {
     const [Issighting, SetIssighting] = useState<boolean>(true)
     const user = props.GetUser()
     useEffect(() => {
-    if (!user || !profiletoshow){
-        return
-    }
-    if (profiletoshow.name == user.name){
-        console.log("XD")
-        SetIssighting(false)
-    }
+        SetIssighting(true)
+        if (!user || !profiletoshow){
+            return
+        }
+        if (profiletoshow.name == user.name){
+            SetIssighting(false)
+        }
     },[profiletoshow, user]);
     if (!profiletoshow){
     return (
